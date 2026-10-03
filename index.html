@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Transformación Kawaii ✨ | Jessica</title>
+    
+    <!-- Ícono personalizado para iPhone y Web -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#fce7f3">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600&display=swap');
+        
+        :root {
+            --ios-glass: rgba(255, 255, 255, 0.78);
+            --ios-border: rgba(255, 255, 255, 0.65);
+            --ios-card-glass: rgba(255, 255, 255, 0.85);
+            --ios-text-main: #372b3a;
+            --ios-text-sub: #78647c;
+            --specular-highlight: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: transparent;
+            color: var(--ios-text-main);
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100vh;
+            padding-bottom: 6rem;
+            transition: color 0.4s ease;
+        }
+
+        h1, h2, h3, h4, .font-fredoka {
+            font-family: 'Fredoka', cursive;
+        }
+
+        /* --- LIQUID GLASS 💎 (EFECTO VIDRIO LÍQUIDO ULTRA-TRANSLÚCIDO) --- */
+        .ios-glass {
+            background: var(--ios-glass);
+            backdrop-filter: blur(28px) saturate(190%);
+            -webkit-backdrop-filter: blur(28px) saturate(190%);
+            border: 1px solid var(--ios-border);
+            border-radius: 28px;
+            box-shadow: 0 12px 36px rgba(236, 72, 153, 0.09), inset 0 1px 1px var(--specular-highlight);
+            position: relative;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .ios-glass-card {
+            background: var(--ios-card-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--ios-border);
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), inset 0 1px 1px var(--specular-highlight);
+            transition: all 0.3s ease;
+        }
+
+        .kawaii-badge {
+            background: rgba(252, 231, 243, 0.9);
+            color: #db2777;
+            border: 1px solid rgba(244, 114, 182, 0.45);
+            font-weight: 700;
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(236, 72, 153, 0.15);
+        }
+
+        .kawaii-btn {
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+            color: white;
+            font-weight: 700;
+            border-radius: 20px;
+            box-shadow: 0 6px 22px rgba(236, 72, 153, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .kawaii-btn:active {
+            transform: scale(0.94);
+            filter: brightness(0.95);
+        }
+
+        /* --- FONDO DINÁMICO LIVE WALLPAPER ESTILO IOS 7 / NEON MESH --- */
+        #live-wallpaper {
+            position: fixed;
+            inset: 0;
+            z-index: -20;
+            overflow: hidden;
+            pointer-events: none;
+            background: #fff5f8;
+            transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .wallpaper-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.62;
+            will-change: transform;
+            animation: blobFloat 22s infinite ease-in-out alternate;
+        }
+
+        .blob-1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, #f472b6, #fb7185);
+            top: -80px;
+            left: -80px;
+            animation-duration: 22s;
+        }
+
+        .blob-2 {
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, #c084fc, #a855f7);
+            bottom: 5%;
+            right: -80px;
+            animation-duration: 28s;
+            animation-delay: -6s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #38bdf8, #818cf8);
+            top: 35%;
+            left: 5%;
+            animation-duration: 20s;
+            animation-delay: -12s;
+        }
+
+        .blob-4 {
+            width: 290px;
+            height: 290px;
+            background: radial-gradient(circle, #fde047, #f472b6);
+            bottom: -60px;
+            left: 25%;
+            animation-duration: 25s;
+            animation-delay: -18s;
+        }
+
+        @keyframes blobFloat {
+            0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+            33% { transform: translate(45px, -55px) scale(1.18) rotate(45deg); }
+            66% { transform: translate(-35px, 35px) scale(0.88) rotate(90deg); }
+            100% { transform: translate(25px, -25px) scale(1.08) rotate(135deg); }
+        }
+
+        /* --- MODO MAMÁ DARK (NEON LIVE WALLPAPER & LIQUID OBSIDIAN GLASS) --- */
+        body.modo-mama-dark {
+            --ios-glass: rgba(18, 19, 32, 0.72);
+            --ios-border: rgba(255, 255, 255, 0.12);
+            --ios-card-glass: rgba(26, 27, 44, 0.78);
+            --ios-text-main: #f3f4f6;
+            --ios-text-sub: #9ca3af;
+            --specular-highlight: rgba(255, 255, 255, 0.18);
+            color: #f3f4f6;
+        }
+
+        body.modo-mama-dark #live-wallpaper {
+            background: #080911;
+        }
+
+        body.modo-mama-dark .blob-1 {
+            background: radial-gradient(circle, #ec4899, #be185d);
+            opacity: 0.75;
+        }
+
+        body.modo-mama-dark .blob-2 {
+            background: radial-gradient(circle, #8b5cf6, #581c87);
+            opacity: 0.8;
+        }
+
+        body.modo-mama-dark .blob-3 {
+            background: radial-gradient(circle, #06b6d4, #0e7490);
+            opacity: 0.7;
+        }
+
+        body.modo-mama-dark .blob-4 {
+            background: radial-gradient(circle, #f59e0b, #b45309);
+            opacity: 0.65;
+        }
+
+        body.modo-mama-dark header {
+            background: rgba(12, 13, 24, 0.86) !important;
+            border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        body.modo-mama-dark header h1 {
+            color: #f472b6 !important;
+        }
+
+        body.modo-mama-dark #shift-select {
+            background: rgba(24, 25, 42, 0.9) !important;
+            border-color: rgba(244, 114, 182, 0.45) !important;
+            color: #fbcfe8 !important;
+        }
+
+        body.modo-mama-dark .fixed-bottom-nav {
+            background: rgba(12, 13, 24, 0.92) !important;
+            border-top-color: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        body.modo-mama-dark .fixed-bottom-nav span {
+            color: #9ca3af;
+        }
+
+        body.modo-mama-dark .nav-btn.text-pink-600 span {
+            color: #f472b6 !important;
+        }
+
+        body.modo-mama-dark .text-gray-700,
+        body.modo-mama-dark .text-gray-800 {
+            color: #e5e7eb !important;
+        }
+
+        body.modo-mama-dark .text-gray-500,
+        body.modo-mama-dark .text-gray-600 {
+            color: #9ca3af !important;
+        }
+
+        body.modo-mama-dark #gael-banner {
+            background: rgba(38, 26, 14, 0.88) !important;
+            border-color: rgba(245, 158, 11, 0.45) !important;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.28) !important;
+        }
+
+        body.modo-mama-dark #gael-banner h2 {
+            color: #fbbf24 !important;
+        }
+
+        body.modo-mama-dark #gael-banner p {
+            color: #fde68a !important;
+        }
+
+        body.modo-mama-dark textarea,
+        body.modo-mama-dark input[type="text"],
+        body.modo-mama-dark input[type="number"] {
+            background: rgba(24, 25, 42, 0.85) !important;
+            color: #f3f4f6 !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        /* --- EFECTO DE REVELADO CIRCULAR (CENTRAL EXPAND/CONTRACT) --- */
+        #circle-transition-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            background: #080911;
+            clip-path: circle(0% at 50% 50%);
+            transition: clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        #circle-transition-overlay.expand {
+            clip-path: circle(150% at 50% 50%);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes pageEnter {
+            0% { opacity: 0; transform: scale(0.98) translateY(8px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .tab-animate {
+            animation: pageEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .animate-bounce-soft {
+            animation: bounceSoft 2.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(244, 114, 182, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(244, 114, 182, 0.45); }
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        /* --- NAVEGACIÓN INFERIOR TOTALMENTE FIJA EN LA BASE (VIEWPORT) --- */
+        .fixed-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
+            box-shadow: 0 -8px 30px rgba(244, 114, 182, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-pink-300 selection:text-pink-900 pb-24 relative overflow-x-hidden">
+
+    <!-- FONDO DINÁMICO LIVE WALLPAPER ESTILO IOS 7 / NEON MESH -->
+    <div id="live-wallpaper">
+        <div class="wallpaper-blob blob-1"></div>
+        <div class="wallpaper-blob blob-2"></div>
+        <div class="wallpaper-blob blob-3"></div>
+        <div class="wallpaper-blob blob-4"></div>
+    </div>
+
+    <!-- OVERLAY DE TRANSICIÓN CIRCULAR EXPAND/CONTRACT PARA MODO MAMÁ -->
+    <div id="circle-transition-overlay"></div>
+
+    <!-- Header Principal Estilo iOS Liquid Glass -->
+    <header class="p-4 bg-white/75 backdrop-blur-2xl sticky top-0 z-40 border-b border-pink-200/60 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-2.5">
+            <img src="icon.png" onerror="this.src='img/icon.png';" alt="Jessica Kawaii" class="w-11 h-11 rounded-full border-2 border-pink-300 shadow-sm object-cover bg-pink-100 shrink-0">
+            <div>
+                <div class="flex items-center gap-1.5">
+                    <span class="kawaii-badge text-[10px] px-2.5 py-0.5">
+                        🎀 Plan de Transformación
+                    </span>
+                </div>
+                <h1 class="text-xl font-bold text-pink-600 mt-0.5 flex items-center gap-1">
+                    Hola, Jessica <span class="animate-bounce-soft text-lg">🌸</span>
+                </h1>
+            </div>
+        </div>
+        
+        <!-- Acciones Rápidas: Recordatorios y Turno -->
+        <div class="flex items-center gap-2">
+            <button onclick="openNotificationModal()" title="Recordatorios Inteligentes" class="w-8 h-8 rounded-full bg-pink-100/80 hover:bg-pink-200/80 border border-pink-300 text-pink-600 flex items-center justify-center text-xs transition active:scale-95 shadow-sm">
+                <i class="fa-solid fa-bell"></i>
+            </button>
+            <div class="flex flex-col items-end gap-0.5">
+                <span class="text-[9px] text-pink-400 font-bold uppercase tracking-wider">Turno Actual</span>
+                <select id="shift-select" onchange="changeShift(this.value)" class="bg-pink-50/90 border-2 border-pink-300 text-xs text-pink-700 font-bold rounded-xl px-2 py-1 outline-none focus:ring-2 focus:ring-pink-400">
+                    <option value="manana">Turno Mañana (5:00 AM - 2:00 PM)</option>
+                    <option value="tarde">Turno Tarde (2:00 PM - 10:00 PM)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Modo Mamá (Prioridad Gael) -->
+    <section class="max-w-md w-full mx-auto px-4 pt-3">
+        <div id="gael-banner" class="bg-amber-50/90 backdrop-blur-md border-2 border-amber-200 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-sm">
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-2xl bg-amber-200 text-amber-700 flex items-center justify-center text-xl shrink-0 animate-bounce-soft">
+                    👶
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold text-amber-900">Modo Mamá Activo (Gael 💛)</h2>
+                    <p class="text-[10px] text-amber-700">Si tu bebé te necesita, pausa. ¡Cero presiones!</p>
+                </div>
+            </div>
+            <button onclick="toggleGaelPause()" id="gael-btn" class="text-[10px] font-bold bg-amber-300 hover:bg-amber-400 text-amber-900 px-3 py-2 rounded-xl transition-all shrink-0 shadow-sm">
+                PAUSAR DÍA
+            </button>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="flex-1 max-w-md w-full mx-auto p-4 space-y-5" id="main-content">
+
+        <!-- PESTAÑA 1: ASISTENTE & MI DÍA -->
+        <section id="tab-asistente" class="tab-content space-y-4">
+            
+            <!-- Medidor de Progreso Global (Suma Agua + Comidas + Ejercicios) -->
+            <div class="ios-glass p-4 space-y-2 animate-pulse-glow">
+                <div class="flex justify-between items-center text-xs font-bold">
+                    <span class="text-pink-600 flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart text-pink-500"></i> Progreso Diario Global
+                    </span>
+                    <span id="daily-progress-text" class="text-pink-600 font-bold">0%</span>
+                </div>
+                <div class="w-full bg-pink-100 h-3.5 rounded-full overflow-hidden p-0.5 border border-pink-200">
+                    <div id="daily-progress-bar" class="bg-gradient-to-r from-pink-400 to-rose-400 h-full rounded-full w-0 transition-all duration-700"></div>
+                </div>
+            </div>
+
+            <div class="ios-glass p-5 relative overflow-hidden bg-gradient-to-br from-white/90 via-pink-50/80 to-purple-50/80">
+                <div class="flex items-center justify-between mb-1.5">
+                    <span class="kawaii-badge text-[9px] px-2.5 py-0.5 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span> AHORA MISMO
+                    </span>
+                    <span id="current-time-display" class="text-xs font-bold text-pink-500 font-mono bg-white/90 px-2.5 py-1 rounded-xl border border-pink-200 shadow-sm">--:-- --</span>
+                </div>
+                <h3 id="active-task-title" class="text-base font-bold text-pink-700 mt-1">Cargando horario...</h3>
+                <p id="active-task-desc" class="text-xs text-gray-600 mt-0.5">Sincronizando rutina diaria...</p>
+            </div>
+
+            <div class="ios-glass p-4 space-y-2.5">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs font-bold text-pink-700 flex items-center gap-1.5">
+                            <i class="fa-solid fa-droplet text-blue-400"></i> Hidratación (2.5 Litros)
+                        </h3>
+                        <p class="text-[10px] text-gray-500">Toca cada vaso de agua conforme bebas</p>
+                    </div>
+                    <span id="water-count" class="text-xs font-bold text-blue-500 bg-blue-50 px-2.5 py-1 rounded-xl border border-blue-200">0 / 10 Vasos</span>
+                </div>
+                <div class="grid grid-cols-5 gap-2 pt-1" id="water-grid"></div>
+            </div>
+
+            <div class="space-y-2.5">
+                <h3 class="text-xs font-bold text-pink-600 uppercase tracking-wider px-1">Itinerario del Día Paso a Paso</h3>
+                <div class="space-y-2" id="timeline-container"></div>
+            </div>
+
+            <!-- Botón Cerrar y Guardar Día de Hoy -->
+            <div class="ios-glass p-4 space-y-2 bg-gradient-to-r from-purple-50/90 via-pink-50/90 to-rose-50/90 border-purple-200 shadow-sm text-center">
+                <div class="flex items-center justify-center gap-1.5">
+                    <span class="text-sm">🌙</span>
+                    <h3 class="text-xs font-bold text-purple-900">Cierre del Día</h3>
+                </div>
+                <p class="text-[10px] text-gray-600">Al terminar tu jornada, guarda el progreso diario consolidado para tu reporte semanal:</p>
+                <button onclick="closeAndSaveDay()" class="kawaii-btn w-full py-2.5 text-xs bg-gradient-to-r from-purple-500 to-pink-500 shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-moon"></i> Cerrar y Guardar Día de Hoy
+                </button>
+                <div id="close-day-toast" class="text-[10px] font-bold text-purple-700 hidden">¡Día guardado en el historial semanal con éxito! ✨</div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA 2: RUTINA COMPLETA DE 5 DÍAS CON PESOS RECOMENDADOS -->
+        <section id="tab-rutina" class="tab-content space-y-4 hidden">
+            
+            <div class="ios-glass p-4 bg-gradient-to-r from-pink-100/90 via-purple-50/90 to-pink-50/90 border-pink-300">
+                <span class="kawaii-badge text-[9px] px-2.5 py-0.5">Semana 1 • Adaptación y Técnica</span>
+                <h2 class="text-base font-bold text-pink-700 mt-1">Gimnasio 5 Días • 50-60 min/sesión</h2>
+                <p class="text-[11px] text-gray-600 mt-1">
+                    <strong>Objetivo:</strong> Preparar músculos sin dolor. Intensidad ligera (RIR 3-4 = "Podría hacer 3 a 4 repeticiones más sin problema").
+                </p>
+            </div>
+
+            <div class="ios-glass p-3.5 space-y-2 bg-gradient-to-r from-emerald-50/90 via-teal-50/90 to-emerald-50/90 border-emerald-200 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-bold text-emerald-800 flex items-center gap-1.5">
+                        <i class="fa-brands fa-spotify text-emerald-500 text-base animate-bounce-soft"></i> Música Oficial de Entrenamiento
+                    </span>
+                    <span class="text-[9px] font-bold text-emerald-700 bg-white/90 px-2 py-0.5 rounded-full border border-emerald-200">Workout Mix 🎵</span>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-sm border border-emerald-200">
+                    <iframe style="border-radius:16px" src="https://open.spotify.com/embed/playlist/03OER1zlaQLqlnHrfiyoAZ?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="ios-glass p-4 space-y-3 bg-gradient-to-r from-pink-50/90 via-purple-50/90 to-pink-50/90 border-pink-300 shadow-sm">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs font-bold text-pink-700 flex items-center gap-1.5">
+                            📸 Foto de Avance Post-Entrenamiento
+                        </h3>
+                        <p class="text-[10px] text-gray-500">¡Registra tu esfuerzo de hoy!</p>
+                    </div>
+                    <label class="kawaii-btn text-[10px] px-3 py-2 cursor-pointer flex items-center gap-1">
+                        <i class="fa-solid fa-camera"></i> Tomar / Subir
+                        <input type="file" accept="image/*" capture="environment" onchange="handleProgressPhoto(event)" class="hidden">
+                    </label>
+                </div>
+                
+                <div id="photo-preview-container" class="hidden relative w-full h-48 rounded-2xl overflow-hidden border-2 border-pink-300 shadow-inner">
+                    <img id="today-photo-img" src="" alt="Foto de Avance" class="w-full h-full object-cover">
+                    <span class="absolute bottom-2 right-2 bg-pink-500 text-white font-bold text-[9px] px-2 py-0.5 rounded-full shadow">
+                        ¡Entrenamiento Logrado! ✨
+                    </span>
+                </div>
+            </div>
+
+            <!-- Barra Rápida de Descanso entre Series -->
+            <div class="ios-glass p-3 flex items-center justify-between gap-2 bg-gradient-to-r from-purple-50/90 via-pink-50/90 to-purple-50/90 border-purple-200">
+                <div class="flex items-center gap-2">
+                    <span class="text-base animate-bounce-soft">⏱️</span>
+                    <div>
+                        <span class="text-[10px] font-bold text-purple-800 block">Descanso entre Series</span>
+                        <span class="text-[9px] text-gray-500">Toca para iniciar el cronómetro</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <button onclick="startRestTimer(60)" class="text-[10px] font-bold bg-white/90 hover:bg-pink-100 text-pink-700 border border-pink-200 px-2.5 py-1.5 rounded-xl transition active:scale-95 shadow-sm">60s</button>
+                    <button onclick="startRestTimer(90)" class="text-[10px] font-bold bg-white/90 hover:bg-pink-100 text-pink-700 border border-pink-200 px-2.5 py-1.5 rounded-xl transition active:scale-95 shadow-sm">90s</button>
+                    <button onclick="startRestTimer(120)" class="text-[10px] font-bold bg-white/90 hover:bg-pink-100 text-pink-700 border border-pink-200 px-2.5 py-1.5 rounded-xl transition active:scale-95 shadow-sm">2 min</button>
+                </div>
+            </div>
+
+            <div class="ios-glass-card p-3.5 space-y-1.5 border-amber-200 bg-amber-50/80">
+                <h3 class="text-xs font-bold text-amber-800 flex items-center gap-1.5">
+                    ⚡ Calentamiento Previo Obligatorio (7 minutos)
+                </h3>
+                <ul class="text-[11px] text-amber-900 space-y-1 list-disc pl-4">
+                    <li>4–5 min de caminadora o bicicleta a ritmo suave.</li>
+                    <li>1–2 min de movilidad articular de cadera y tobillos.</li>
+                    <li>1–2 series muy ligeras sin peso del primer ejercicio.</li>
+                </ul>
+            </div>
+
+            <div class="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar" id="day-tabs">
+                <button data-day="lunes" onclick="switchWorkoutDay('lunes', this)" class="day-btn kawaii-badge px-3.5 py-2 text-xs shrink-0 bg-pink-500 text-white border-pink-500">Lun (Glúteo/Femoral)</button>
+                <button data-day="martes" onclick="switchWorkoutDay('martes', this)" class="day-btn kawaii-badge px-3.5 py-2 text-xs shrink-0 bg-white text-pink-600">Mar (Espalda/Brazos)</button>
+                <button data-day="miercoles" onclick="switchWorkoutDay('miercoles', this)" class="day-btn kawaii-badge px-3.5 py-2 text-xs shrink-0 bg-white text-pink-600">Mié (Glúteo/Cuádriceps)</button>
+                <button data-day="jueves" onclick="switchWorkoutDay('jueves', this)" class="day-btn kawaii-badge px-3.5 py-2 text-xs shrink-0 bg-white text-pink-600">Jue (Superior/Core)</button>
+                <button data-day="viernes" onclick="switchWorkoutDay('viernes', this)" class="day-btn kawaii-badge px-3.5 py-2 text-xs shrink-0 bg-white text-pink-600">Vie (Glúteo/Piernas)</button>
+                <button data-day="finde" onclick="switchWorkoutDay('finde', this)" class="day-btn kawaii-badge px-3.5 py-2 text-xs shrink-0 bg-white text-pink-600">Sáb/Dom (Descanso)</button>
+            </div>
+
+            <div id="workout-day-content" class="space-y-3.5"></div>
+        </section>
+
+        <!-- PESTAÑA 3: NUTRICIÓN -->
+        <section id="tab-nutricion" class="tab-content space-y-4 hidden">
+            
+            <div class="ios-glass p-4 bg-gradient-to-r from-pink-100/90 via-purple-50/90 to-pink-50/90 border-pink-300 space-y-1">
+                <div class="flex justify-between items-center">
+                    <span class="kawaii-badge text-[9px] px-2.5 py-0.5">Semana 1 • Recomposición Corporal</span>
+                    <span class="text-[10px] font-bold text-pink-600">~1,900 kcal/día</span>
+                </div>
+                <h2 class="text-sm font-bold text-pink-700">Plan Nutricional de Jessica 🌸</h2>
+                <p class="text-[10px] text-gray-600">
+                    <strong>Macros:</strong> Proteína: 115–120g | Grasas: 55–65g | Carbos: ~220–240g
+                </p>
+                <p class="text-[9px] text-rose-600 font-bold bg-rose-50 p-1.5 rounded-lg border border-rose-200 mt-1">
+                    🚫 Restricciones strictly: SIN cebolla, SIN tomate, SIN papaya, SIN guayaba, SIN hígado.
+                </p>
+            </div>
+
+            <div id="daily-romantic-card" class="ios-glass p-4 text-center space-y-1 bg-gradient-to-r from-rose-50/90 via-pink-50/90 to-purple-50/90 border-rose-200">
+                <span class="text-[10px] font-bold text-rose-500 uppercase tracking-wider flex items-center justify-center gap-1">
+                    💖 Un mensaje de tu esposo para hoy
+                </span>
+                <p id="daily-romantic-phrase" class="text-xs text-pink-800 font-bold italic leading-relaxed pt-1">
+                    "Cargando tu mensaje del día..."
+                </p>
+            </div>
+
+            <!-- Nutri-IA: Escáner y Consulta Inteligente de Comida -->
+            <div class="ios-glass p-4 space-y-3 bg-gradient-to-br from-purple-50/90 via-pink-50/90 to-white/90 border-pink-200 shadow-sm">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-base animate-bounce-soft">✨</span>
+                        <div>
+                            <h3 class="text-xs font-bold text-purple-900">Nutri-IA • ¿Puedo comer esto?</h3>
+                            <p class="text-[10px] text-gray-500">Toma una foto o escribe qué deseas comer</p>
+                        </div>
+                    </div>
+                    <span class="kawaii-badge text-[8px] px-2 py-0.5">Gemini IA 🌸</span>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex gap-2">
+                        <label class="kawaii-btn text-[10px] px-3 py-2 cursor-pointer flex items-center justify-center gap-1.5 shrink-0 bg-gradient-to-r from-pink-500 to-rose-400">
+                            <i class="fa-solid fa-camera"></i> Foto del Plato
+                            <input type="file" id="nutri-ai-file" accept="image/*" onchange="handleNutriPhoto(event)" class="hidden">
+                        </label>
+                        <input type="text" id="nutri-ai-text" placeholder="Ej: ¿Puedo comer media taza de mango o barra de avena?" class="flex-1 bg-white/90 border border-pink-200 rounded-xl px-3 py-1.5 text-xs text-gray-700 outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+                    
+                    <div id="nutri-ai-preview" class="hidden relative w-full h-28 rounded-xl overflow-hidden border border-pink-200">
+                        <img id="nutri-preview-img" src="" alt="Comida a analizar" class="w-full h-full object-cover">
+                        <button onclick="clearNutriPhoto()" class="absolute top-1 right-1 bg-gray-900/70 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">✕</button>
+                    </div>
+
+                    <button onclick="consultNutriAI()" id="nutri-ai-submit-btn" class="kawaii-btn w-full py-2 text-xs flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-sparkles"></i> Consultar a mi Nutri-Coach ✨
+                    </button>
+                </div>
+
+                <!-- Estado de Carga -->
+                <div id="nutri-ai-loading" class="hidden text-center py-3 space-y-1">
+                    <div class="inline-block animate-spin text-pink-500 text-lg">🌸</div>
+                    <p class="text-[11px] font-bold text-pink-700">Analizando ingredientes, restricciones y macros para ti...</p>
+                </div>
+
+                <!-- Resultado Semáforo -->
+                <div id="nutri-ai-result" class="hidden p-3.5 rounded-2xl border transition-all space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span id="nutri-res-badge" class="text-[10px] font-bold px-2.5 py-0.5 rounded-full"></span>
+                        <span class="text-[9px] text-gray-400">Objetivo ~1,900 kcal</span>
+                    </div>
+                    <h4 id="nutri-res-title" class="font-bold text-xs"></h4>
+                    <p id="nutri-res-reason" class="text-[11px] leading-relaxed"></p>
+                    <div class="p-2 rounded-xl text-[10px] space-y-1 bg-white/80 border border-pink-100">
+                        <div id="nutri-res-portion" class="font-medium"></div>
+                        <div id="nutri-res-alternative" class="font-bold text-pink-700"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-1.5 overflow-x-auto pb-1 no-scrollbar" id="nutri-day-tabs">
+                <button data-nday="lunes" onclick="switchNutriDay('lunes', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-pink-500 text-white border-pink-500">Lunes</button>
+                <button data-nday="martes" onclick="switchNutriDay('martes', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-white text-pink-600">Martes</button>
+                <button data-nday="miercoles" onclick="switchNutriDay('miercoles', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-white text-pink-600">Miércoles</button>
+                <button data-nday="jueves" onclick="switchNutriDay('jueves', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-white text-pink-600">Jueves</button>
+                <button data-nday="viernes" onclick="switchNutriDay('viernes', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-white text-pink-600">Viernes</button>
+                <button data-nday="sabado" onclick="switchNutriDay('sabado', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-white text-pink-600">Sábado 🍕</button>
+                <button data-nday="domingo" onclick="switchNutriDay('domingo', this)" class="nutri-btn kawaii-badge px-3 py-1.5 text-xs shrink-0 bg-white text-pink-600">Domingo 🌸</button>
+            </div>
+
+            <div id="nutri-day-content" class="space-y-3.5"></div>
+
+            <div class="ios-glass-card p-3 space-y-1 bg-amber-50/80 border-amber-200">
+                <h4 class="text-xs font-bold text-amber-800 flex items-center gap-1">
+                    ⚖️ Regla Importante de Meal Prep
+                </h4>
+                <p class="text-[10px] text-amber-900">
+                    Todos los pesos de carnes (pollo, res, pescado) y carbohidratos (arroz, pasta, papa) están dados en **PESO CRUDO** antes de cocinar.
+                </p>
+            </div>
+        </section>
+
+        <!-- PESTAÑA 4: COMPRAS -->
+        <section id="tab-compras" class="tab-content space-y-4 hidden">
+            <div class="flex justify-between items-center px-1">
+                <h2 class="text-xs font-bold text-pink-600 uppercase tracking-wider">Lista de Compras (7 Días)</h2>
+                <button onclick="clearShopping()" class="text-[10px] text-pink-500 font-bold hover:underline">Limpiar Selección</button>
+            </div>
+
+            <div class="ios-glass p-4 space-y-2 border-l-4 border-l-purple-400">
+                <h3 class="text-xs font-bold text-purple-700 uppercase flex items-center gap-1">
+                    🍗 1. Proteínas Semanales
+                </h3>
+                <div class="space-y-2 text-xs text-gray-700 pt-1" id="shop-proteinas"></div>
+            </div>
+
+            <div class="ios-glass p-4 space-y-2 border-l-4 border-l-amber-400">
+                <h3 class="text-xs font-bold text-amber-700 uppercase flex items-center gap-1">
+                    🥑 2. Carbohidratos, Frutas & Grasas
+                </h3>
+                <div class="space-y-2 text-xs text-gray-700 pt-1" id="shop-carbs"></div>
+            </div>
+
+            <div class="ios-glass p-4 space-y-2 border-l-4 border-l-emerald-400">
+                <h3 class="text-xs font-bold text-emerald-700 uppercase flex items-center gap-1">
+                    🥦 3. Verduras Aceptadas (🚫 Sin Cebolla / Tomate)
+                </h3>
+                <div class="space-y-2 text-xs text-gray-700 pt-1" id="shop-verduras"></div>
+            </div>
+
+            <div class="ios-glass p-4 space-y-2 border-l-4 border-l-pink-500">
+                <h3 class="text-xs font-bold text-pink-700 uppercase flex items-center gap-1">
+                    ✨ 4. Skincare & Cuidado Facial
+                </h3>
+                <div class="space-y-2 text-xs text-gray-700 pt-1" id="shop-skincare"></div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA 5: META IA & GALERÍA MULTI-FOTO ESTILO IPHONE -->
+        <section id="tab-meta" class="tab-content space-y-4 hidden">
+            
+            <div class="ios-glass p-5 text-center space-y-3 bg-gradient-to-b from-white/90 to-pink-50/90">
+                <div class="flex justify-between items-center">
+                    <span class="kawaii-badge text-[9px] px-3 py-1">VISIÓN & TRANSFORMACIÓN</span>
+                    <label class="text-[10px] font-bold text-pink-600 bg-pink-100/80 hover:bg-pink-200/80 border border-pink-300 px-2.5 py-1 rounded-xl cursor-pointer transition shadow-sm">
+                        🖼️ Añadir Fotos
+                        <input type="file" accept="image/*" multiple onchange="handleMultipleMetaPhotos(event)" class="hidden">
+                    </label>
+                </div>
+                <h2 class="text-base font-bold text-pink-700">El cuerpo que te espera ✨</h2>
+                
+                <div class="relative w-full">
+                    <div id="meta-carousel" onscroll="updateCarouselDots()" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-[24px] border-2 border-pink-200 shadow-sm h-72"></div>
+                    <div id="carousel-dots" class="flex justify-center items-center gap-1.5 mt-2.5"></div>
+                </div>
+
+                <div class="flex justify-between items-center pt-1">
+                    <p class="text-xs text-pink-600 font-bold italic mx-auto">"Un día a la vez. ¡Estás construyendo una versión más fuerte y sana!"</p>
+                    <button onclick="clearCustomMetaPhotos()" id="reset-meta-photos-btn" class="hidden text-[9px] text-pink-400 hover:underline">Restablecer</button>
+                </div>
+            </div>
+
+            <!-- MÓDULO TIMELAPSE DE TRANSFORMACIÓN (48 SEMANAS) -->
+            <div class="ios-glass p-4 space-y-3 bg-gradient-to-r from-purple-50/90 via-pink-50/90 to-rose-50/90 border-2 border-pink-200 shadow-sm">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <span class="text-base animate-bounce-soft">🎬</span>
+                        <div>
+                            <h3 class="text-xs font-bold text-pink-700">Timelapse de Transformación</h3>
+                            <p class="text-[10px] text-gray-500">Tu evolución día a día (48 Semanas)</p>
+                        </div>
+                    </div>
+                    <span id="timelapse-count-badge" class="kawaii-badge text-[9px] px-2.5 py-0.5">1 Foto</span>
+                </div>
+                
+                <!-- Visor de Timelapse -->
+                <div class="relative w-full h-72 rounded-[22px] overflow-hidden border-2 border-pink-300 shadow-inner bg-gradient-to-br from-pink-50/90 via-purple-50/90 to-pink-100/90 flex items-center justify-center">
+                    <img id="timelapse-viewer-img" src="" alt="Timelapse Jessica" class="w-full h-full object-cover hidden">
+                    
+                    <!-- Estado inicial vacío (esperando el primer entrenamiento) -->
+                    <div id="timelapse-empty-state" class="flex flex-col items-center justify-center p-6 text-center space-y-2.5">
+                        <div class="w-14 h-14 rounded-full bg-white/90 border-2 border-dashed border-pink-400 flex items-center justify-center text-2xl text-pink-500 shadow-sm animate-pulse">
+                            📸
+                        </div>
+                        <h4 class="text-xs font-bold text-pink-700">Tu Timelapse comenzará aquí ✨</h4>
+                        <p class="text-[10px] text-gray-500 max-w-[220px] leading-relaxed">
+                            Al completar tu primer entrenamiento y tomarte la foto de avance, se colocará aquí automáticamente como tu <strong>Día 1</strong> rumbo a las 48 semanas.
+                        </p>
+                    </div>
+
+                    <div id="timelapse-overlay" class="hidden absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl flex justify-between items-center text-white text-[10px] font-bold">
+                        <span id="timelapse-photo-date">Día 1</span>
+                        <span id="timelapse-photo-index">0 / 0</span>
+                    </div>
+                </div>
+
+                <!-- Controles del Timelapse -->
+                <div class="space-y-2 pt-1">
+                    <input type="range" id="timelapse-slider" min="0" max="0" value="0" oninput="onTimelapseSliderChange(this.value)" class="w-full accent-pink-500 cursor-pointer">
+                    <div class="flex items-center justify-between gap-2">
+                        <button onclick="toggleTimelapsePlay()" id="timelapse-play-btn" class="kawaii-btn text-xs py-2 px-3.5 flex items-center gap-1.5 bg-gradient-to-r from-pink-500 to-rose-400 shadow-sm">
+                            <i class="fa-solid fa-play" id="timelapse-play-icon"></i> <span id="timelapse-play-text">Reproducir</span>
+                        </button>
+                        <div class="flex items-center gap-1 text-[10px] text-gray-600 font-bold bg-white/80 px-2 py-1.5 rounded-xl border border-pink-200">
+                            <span>Velocidad:</span>
+                            <select id="timelapse-speed" class="bg-transparent text-pink-700 font-bold outline-none text-[10px]">
+                                <option value="400">Rápido (0.4s)</option>
+                                <option value="800" selected>Normal (0.8s)</option>
+                                <option value="1400">Pausado (1.4s)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recuadro de Notas / Feedback Semanal -->
+            <div class="ios-glass p-4 space-y-2 bg-gradient-to-br from-pink-50/90 via-purple-50/90 to-white/90 border-pink-200">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xs font-bold text-pink-700 flex items-center gap-1.5">
+                        📝 Notas & Feedback Semanal
+                    </h3>
+                    <span class="text-[9px] text-pink-500 font-bold bg-pink-100 px-2 py-0.5 rounded-full">Autoguardado ✨</span>
+                </div>
+                <p class="text-[10px] text-gray-500">Anota dudas, sensaciones, molestias o peso superado para revisar en el reporte semanal:</p>
+                <textarea id="weekly-feedback-notes" oninput="saveFeedbackNotes()" placeholder="Ej: Me sentí con buena fuerza en el entrenamiento a la 1pm. El peso muerto estuvo muy cómodo..." class="w-full h-24 bg-white/90 border border-pink-200 rounded-xl p-2.5 text-xs text-gray-700 outline-none focus:ring-2 focus:ring-pink-400 resize-none shadow-inner"></textarea>
+            </div>
+
+            <div class="ios-glass p-4 space-y-3">
+                <h3 class="text-xs font-bold text-pink-700 uppercase flex items-center gap-1.5 border-b border-pink-100 pb-2">
+                    📏 Control de Medidas (Metas Fijas vs Actuales)
+                </h3>
+                
+                <div class="space-y-2.5 text-xs">
+                    <div class="flex items-center justify-between bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                        <div>
+                            <span class="font-bold text-gray-700 block">PESO (KG)</span>
+                            <span class="text-[10px] text-pink-500 font-bold">Meta Fija: 58.0 kg</span>
+                        </div>
+                        <input type="number" id="act-peso" placeholder="57.0" class="w-24 bg-white border border-pink-300 rounded-lg p-1.5 text-right font-bold text-pink-700 outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+
+                    <div class="flex items-center justify-between bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                        <div>
+                            <span class="font-bold text-gray-700 block">CINTURA (CM)</span>
+                            <span class="text-[10px] text-pink-500 font-bold">Meta Fija: 70.0 cm (Inicial: 80)</span>
+                        </div>
+                        <input type="number" id="act-cintura" placeholder="80.0" class="w-24 bg-white border border-pink-300 rounded-lg p-1.5 text-right font-bold text-pink-700 outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+
+                    <div class="flex items-center justify-between bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                        <div>
+                            <span class="font-bold text-gray-700 block">GLÚTEOS / CADERA (CM)</span>
+                            <span class="text-[10px] text-pink-500 font-bold">Meta Fija: 110.0 cm (Inicial: 100)</span>
+                        </div>
+                        <input type="number" id="act-gluteo" placeholder="100.0" class="w-24 bg-white border border-pink-300 rounded-lg p-1.5 text-right font-bold text-pink-700 outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+
+                    <div class="flex items-center justify-between bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                        <div>
+                            <span class="font-bold text-gray-700 block">BUSTO (CM)</span>
+                            <span class="text-[10px] text-pink-500 font-bold">Meta Fija: 100.0 cm (Inicial: 96)</span>
+                        </div>
+                        <input type="number" id="act-busto" placeholder="96.0" class="w-24 bg-white border border-pink-300 rounded-lg p-1.5 text-right font-bold text-pink-700 outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+
+                    <div class="flex items-center justify-between bg-pink-50/60 p-2.5 rounded-xl border border-pink-200">
+                        <div>
+                            <span class="font-bold text-gray-700 block">MUSLO (CM)</span>
+                            <span class="text-[10px] text-pink-500 font-bold">Meta Fija: 60.0 cm</span>
+                        </div>
+                        <input type="number" id="act-muslo" placeholder="Actual" class="w-24 bg-white border border-pink-300 rounded-lg p-1.5 text-right font-bold text-pink-700 outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+                </div>
+
+                <button onclick="saveMetrics()" class="kawaii-btn w-full py-3 text-xs mt-2">
+                    Guardar Registro de Hoy
+                </button>
+                <div id="metrics-toast" class="text-[11px] text-center text-pink-600 font-bold hidden">¡Medidas actuales guardadas con éxito! 💕</div>
+            </div>
+
+            <div class="ios-glass p-4 space-y-3 bg-gradient-to-br from-purple-50/90 via-pink-50/90 to-white/90 border-purple-200 shadow-sm">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xs font-bold text-purple-800 flex items-center gap-1.5">
+                            📊 Reporte Semanal (para Entrenador / IA)
+                        </h3>
+                        <p class="text-[10px] text-gray-500">Genera un resumen para ajustar la Semana 2</p>
+                    </div>
+                    <button onclick="generateWeeklyReport()" class="kawaii-btn text-[10px] px-3 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500">
+                        Generar 📝
+                    </button>
+                </div>
+
+                <div id="report-output-container" class="hidden space-y-2.5 pt-1">
+                    <textarea id="report-text" readonly class="w-full h-44 bg-white/90 border border-purple-200 rounded-xl p-2.5 text-[10px] font-mono text-gray-700 outline-none resize-none shadow-inner"></textarea>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button onclick="shareReportWhatsApp()" class="kawaii-btn py-2.5 text-xs flex items-center justify-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-500 shadow-md">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> Compartir por WhatsApp
+                        </button>
+                        <button onclick="copyReportText()" class="kawaii-btn py-2.5 text-xs flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-500 to-pink-500">
+                            <i class="fa-solid fa-copy text-sm"></i> Copiar Texto
+                        </button>
+                    </div>
+
+                    <div id="copy-toast" class="text-[10px] text-center text-purple-700 font-bold hidden">¡Reporte copiado! Listo para enviárselo a tu entrenador o IA. 🚀</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- WIDGET FLOTANTE: TEMPORIZADOR DE DESCANSO ENTRE SERIES ⏱️ -->
+        <div id="rest-timer-bar" class="hidden fixed bottom-20 left-4 right-4 max-w-md mx-auto z-40 ios-glass p-3 flex items-center justify-between shadow-2xl border-2 border-pink-300/80 animate-bounce-soft">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-pink-500 to-rose-400 text-white flex items-center justify-center font-mono font-bold text-xs shadow-md">
+                    <i class="fa-solid fa-stopwatch animate-pulse"></i>
+                </div>
+                <div>
+                    <span class="text-[9px] text-pink-600 font-bold uppercase tracking-wider block">Descanso entre series</span>
+                    <span id="rest-timer-display" class="text-sm font-bold font-mono text-gray-800">01:00</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <button onclick="addRestTimerSeconds(15)" class="text-[10px] font-bold bg-pink-100 hover:bg-pink-200 text-pink-700 px-2 py-1 rounded-lg transition active:scale-95">+15s</button>
+                <button onclick="toggleRestTimerPause()" id="rest-timer-pause-btn" class="text-[10px] font-bold bg-pink-500 hover:bg-pink-600 text-white px-2.5 py-1 rounded-lg transition active:scale-95">Pausar</button>
+                <button onclick="closeRestTimer()" class="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 flex items-center justify-center text-xs ml-1 transition"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MODAL DE RECORDATORIOS INTELIGENTES ESTILO LIQUID GLASS -->
+    <div id="notification-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-3 bg-black/40 backdrop-blur-sm transition-all duration-300">
+        <div class="ios-glass max-w-sm w-full p-5 space-y-4 shadow-2xl border-2 border-pink-200 animate-pulse-glow bg-white/95">
+            <div class="flex justify-between items-center border-b border-pink-100 pb-2.5">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🔔</span>
+                    <div>
+                        <h3 class="text-sm font-bold text-pink-700">Recordatorios Inteligentes</h3>
+                        <p class="text-[10px] text-gray-500">Agua, comidas y gym en el momento justo</p>
+                    </div>
+                </div>
+                <button onclick="closeNotificationModal()" class="w-7 h-7 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center hover:bg-pink-200 text-xs transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-2.5">
+                <div class="flex items-center justify-between p-3 rounded-2xl bg-pink-50/70 border border-pink-200">
+                    <div>
+                        <span class="text-xs font-bold text-gray-800 block">Notificaciones en el móvil</span>
+                        <span id="notif-status-text" class="text-[10px] text-pink-600 font-bold">Estado: Pendiente</span>
+                    </div>
+                    <button onclick="requestNotificationPermission()" id="notif-perm-btn" class="kawaii-btn text-[11px] py-1.5 px-3">
+                        Activar 🔔
+                    </button>
+                </div>
+
+                <div class="space-y-1.5 text-xs text-gray-700">
+                    <span class="text-[10px] font-bold text-pink-500 uppercase tracking-wider block">Horarios Programados:</span>
+                    <div class="grid grid-cols-1 gap-1.5 text-[11px]">
+                        <div class="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-pink-100">
+                            <span>🌅 <strong>08:30 AM</strong> • Desayuno Proteico + Vaso #1</span>
+                            <span class="text-emerald-500 font-bold">✓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-pink-100">
+                            <span>💧 <strong>11:30 AM</strong> • Hidratación (Vaso #4)</span>
+                            <span class="text-emerald-500 font-bold">✓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-pink-100">
+                            <span>🥗 <strong>13:15 PM</strong> • Almuerzo Principal Proteico</span>
+                            <span class="text-emerald-500 font-bold">✓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-pink-100">
+                            <span>💪 <strong>16:15 PM</strong> • Gym + Toma de Creatina</span>
+                            <span class="text-emerald-500 font-bold">✓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded-xl bg-white/80 border border-pink-100">
+                            <span>🌙 <strong>20:30 PM</strong> • Cena Ligera & Foto de Cierre</span>
+                            <span class="text-emerald-500 font-bold">✓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-1 flex gap-2">
+                    <button onclick="testNotificationAlert()" class="w-full text-xs font-bold py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-pink-700 border border-pink-300 rounded-xl hover:bg-pink-200 transition active:scale-95 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-paper-plane text-xs"></i> Probar Recordatorio Ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación Inferior Fija en la Base -->
+    <nav class="fixed-bottom-nav">
+        <div class="flex justify-around items-center max-w-md mx-auto p-2">
+            <button onclick="switchTab('asistente', this)" class="nav-btn flex flex-col items-center gap-0.5 text-pink-500 p-1">
+                <i class="fa-solid fa-clock text-base"></i>
+                <span class="text-[10px] font-bold">Hoy</span>
+            </button>
+            <button onclick="switchTab('rutina', this)" class="nav-btn flex flex-col items-center gap-0.5 text-gray-400 p-1">
+                <i class="fa-solid fa-dumbbell text-base"></i>
+                <span class="text-[10px] font-bold">Rutina</span>
+            </button>
+            <button onclick="switchTab('nutricion', this)" class="nav-btn flex flex-col items-center gap-0.5 text-gray-400 p-1">
+                <i class="fa-solid fa-utensils text-base"></i>
+                <span class="text-[10px] font-bold">Nutrición</span>
+            </button>
+            <button onclick="switchTab('compras', this)" class="nav-btn flex flex-col items-center gap-0.5 text-gray-400 p-1">
+                <i class="fa-solid fa-basket-shopping text-base"></i>
+                <span class="text-[10px] font-bold">Compras</span>
+            </button>
+            <button onclick="switchTab('meta', this)" class="nav-btn flex flex-col items-center gap-0.5 text-gray-400 p-1">
+                <i class="fa-solid fa-heart text-base"></i>
+                <span class="text-[10px] font-bold">Meta</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- LÓGICA COMPLETA DE LA APLICACIÓN -->
+    <script>
+        // === BLINDAJE DE ALMACENAMIENTO (FASE 1) ===
+        function safeSetItem(key, value) {
+            try {
+                localStorage.setItem(key, value);
+                return true;
+            } catch (e) {
+                console.warn(`[Storage Warning] Error al guardar "${key}":`, e);
+                return false;
+            }
+        }
+
+        function safeJsonParse(jsonString, fallback) {
+            if (!jsonString) return fallback;
+            try {
+                return JSON.parse(jsonString);
+            } catch (e) {
+                console.warn("[Storage Warning] Error al parsear JSON (se usa respaldo en memoria sin sobreescribir):", e);
+                return fallback;
+            }
+        }
+
+        function showStorageWarningNotification(msg) {
+            let toast = document.getElementById('storage-warning-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'storage-warning-toast';
+                toast.className = 'fixed top-16 left-4 right-4 z-50 bg-rose-50/95 border-2 border-rose-300 text-rose-800 text-xs font-bold p-3 rounded-2xl shadow-xl text-center tab-animate backdrop-blur-md transition-all';
+                document.body.appendChild(toast);
+            }
+            toast.innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                if (toast) toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Horarios Diarios Adaptados a Turnos Reales
+        const schedules = {
+            manana: [
+                { time: "04:30", title: "Despertar & Skincare Matutino", desc: "Aseo facial suave, Niacinamida 10% + Zinc y Protector Solar SPF50+.", icon: "fa-sun" },
+                { time: "05:00", title: "Entrada Turno Mañana (Trabajo)", desc: "Jornada laboral de mañana. Mantener hidratación constante.", icon: "fa-briefcase" },
+                { time: "14:00", title: "Salida Trabajo + Comida con Gael 👶", desc: "Almuerzo del plan y tiempo de calidad con tu bebé.", icon: "fa-utensils" },
+                { time: "16:30", title: "⏰ ENTRENAMIENTO GIMNASIO (50 MIN)", desc: "Sesión de Gimnasio Semana 1 + Toma de Creatina.", icon: "fa-dumbbell" },
+                { time: "19:00", title: "Cena & Rutina Nocturna Gael", desc: "Cena ligera del plan o tiempo libre en familia.", icon: "fa-utensils" },
+                { time: "22:00", title: "Skincare Nocturno con Retinol", desc: "Limpieza facial, crema hidratante y Retinol nocturno.", icon: "fa-moon" },
+                { time: "23:00", title: "Descanso Reparador", desc: "Hora de dormir para recuperación.", icon: "fa-bed" }
+            ],
+            tarde: [
+                { time: "08:30", title: "Despertar con Gael & Skincare", desc: "Limpiador suave, Niacinamida y SPF50+.", icon: "fa-sun" },
+                { time: "09:00", title: "Desayuno Proteico & Tiempo Gael 👶", desc: "Desayuno rico del plan y mañana libre con Gael.", icon: "fa-baby" },
+                { time: "13:00", title: "⏰ ENTRENAMIENTO EN GIMNASIO (1 PM)", desc: "Entrenamiento previo a iniciar turno laboral en el gym.", icon: "fa-dumbbell" },
+                { time: "14:00", title: "Entrada Turno Tarde (Trabajo 2-10 PM)", desc: "Inicio de jornada laboral de tarde.", icon: "fa-briefcase" },
+                { time: "18:00", title: "Colación / Snack en Trabajo", desc: "Alimento del plan para mantener energía.", icon: "fa-apple-whole" },
+                { time: "22:00", title: "Salida Trabajo & Regreso a Casa", desc: "Cierre de jornada laboral.", icon: "fa-house" },
+                { time: "22:30", title: "Cena Ligera & Skincare Retinol", desc: "Cena ligera e hidratación nocturna.", icon: "fa-spa" },
+                { time: "23:30", title: "Descanso Reparador", desc: "Hora máxima de sueño.", icon: "fa-bed" }
+            ]
+        };
+
+        // Plan Nutricional Detallado Día por Día
+        const nutritionData = {
+            lunes: {
+                phrase: "Hoy inicia una nueva semana, mi amor. Cada pequeño paso que das me llena de orgullo. ¡Estoy contigo en todo momento, hermosa! 💖",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Huevos Revueltos, Avena con Plátano y Yogurt", 
+                        ingredients: "• 2 huevos enteros + 120g claras de huevo\n• 50g avena en hojuelas (peso crudo)\n• 1 plátano mediano (~120g sin cáscara)\n• 150g yogurt griego natural sin azúcar", 
+                        prep: "1. Batir los 2 huevos junto con los 120g de claras en un tazón con una pizca de sal marina y pimienta.\n2. Calentar un sartén antiadherente a fuego medio y cocinar la mezcla revolviendo suavemente durante 3-4 minutos hasta que quede bien cocida.\n3. En una olla pequeña, cocinar los 50g de avena con 1 taza de agua o leche descremada a fuego medio durante 5 minutos hasta que espese.\n4. Servir la avena caliente rebanando el plátano encima.\n5. Servir los 150g de yogurt griego en un tazón aparte como acompañamiento." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Pollo a la Plancha con Arroz y Verduras", 
+                        ingredients: "• 150g pechuga de pollo (peso crudo)\n• 70g arroz blanco (peso crudo)\n• 100–150g calabacita\n• 100g zanahoria\n• 50g aguacate\n• 5g aceite de oliva (1 cdita)\n• Condimentos: Sal, pimienta, ajo en polvo, paprika y limón al gusto (🚫 Sin cebolla ni tomate)", 
+                        prep: "1. Enjuagar y cocinar los 70g de arroz blanco en 1.5 tazas de agua con sal y ajo en polvo a fuego bajo hasta secar (~15 min).\n2. Sazonar los 150g de pechuga de pollo cruda con sal, pimienta, ajo en polvo y paprika.\n3. Cocinar la pechuga a la plancha a fuego medio durante 4-5 minutos por lado hasta que esté dorada.\n4. Cortar la calabacita y zanahoria en rodajas o bastones y saltearlas en un sartén con los 5g de aceite de oliva por 6-8 minutos.\n5. Emplatar el pollo junto con el arroz, las verduras salteadas y el aguacate rebanado encima con unas gotas de limón." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Yogurt Griego con Manzana y Nueces", 
+                        ingredients: "• 200g yogurt griego natural sin azúcar\n• 1 manzana fresca\n• 15g nueces crudas", 
+                        prep: "1. Verter los 200g de yogurt griego en un recipiente o taza.\n2. Lavar y picar la manzana en cubos pequeños.\n3. Mezclar la manzana con el yogurt y espolvorear los 15g de nueces troceadas por encima." 
+                    },
+                    { 
+                        type: "CENA LIGERA", 
+                        time: "Noche", 
+                        title: "Pescado Blanco con Papa al Horno y Brócoli", 
+                        ingredients: "• 130g filete de pescado blanco (peso crudo)\n• 250g papa (peso crudo)\n• 150g brócoli fresco\n• 5g aceite de oliva\n• 2 tortillas de maíz", 
+                        prep: "1. Cortar los 250g de papa en gajos o cubos y cocinar en air fryer u horno a 190°C durante 20 minutos con sal y pimienta.\n2. Lavar los 150g de brócoli y cocinar al vapor en una olla con poco agua por 6-8 minutos.\n3. Sazonar el pescado blanco con sal, ajo en polvo y limón, y cocinarlo a la plancha o sartén antiadherente por 3 minutos por lado.\n4. Sirve el pescado, la papa y el brócoli rociando los 5g de aceite de oliva en crudo sobre el plato. Acompañar con las 2 tortillas de maíz calientes." 
+                    }
+                ]
+            },
+            martes: {
+                phrase: "Tu disciplina y tu sonrisa son mi inspiración diaria. Recuerda lo fuerte y capaz que eres. ¡Te amo con todo mi corazón! ✨🌸",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Huevos con Tortilla + Avena y Plátano", 
+                        ingredients: "• 2 huevos + 120g claras\n• 2 tortillas de maíz\n• 40g avena en hojuelas (peso crudo)\n• 1 plátano mediano\n• 150g yogurt griego natural", 
+                        prep: "1. Batir los huevos y claras. Cocinarlos a la plancha revueltos con sal.\n2. Calentar las 2 tortillas de maíz para acompañar los huevos.\n3. Cocinar los 40g de avena con agua y canela durante 5 minutos a fuego lento hasta espesar y agregar el plátano rebanado.\n4. Acompañar con los 150g de yogurt griego en un vaso o plato pequeño." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Carne de Res Magra con Papa y Verduras", 
+                        ingredients: "• 150g carne de res magra (peso crudo)\n• 250g papa (peso crudo)\n• 100g calabacita\n• 100g zanahoria\n• 50g aguacate\n• 5g aceite de oliva\n• Especias al gusto (🚫 Sin cebolla ni tomate)", 
+                        prep: "1. Cocinar los 250g de papa troceada en air fryer, horno o hervida con sal.\n2. Sazonar los 150g de carne de res magra con sal, pimienta y ajo en polvo.\n3. Cocinar la carne a la plancha durante 3-4 minutos por lado al término deseado.\n4. Cocer la calabacita y zanahoria al vapor.\n5. Servir la carne con la papa, las verduras, el aguacate y rociar los 5g de aceite de oliva en crudo." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Smoothie Proteico de Whey, Plátano y Cacahuate", 
+                        ingredients: "• 1 scoop Whey Protein (~25–30g proteína)\n• 1 plátano mediano\n• 20g crema de cacahuate natural\n• Agua y hielo al gusto", 
+                        prep: "1. Agregar en el vaso de la licuadora el scoop de Whey Protein, el plátano pelado, los 20g de crema de cacahuate y 250ml de agua fría con hielo.\n2. Licuar a velocidad alta durante 45 segundos hasta obtener una consistencia cremosa y homogénea." 
+                    },
+                    { 
+                        type: "CENA LIGERA", 
+                        time: "Noche", 
+                        title: "Tostadas de Atún con Frijoles y Aguacate", 
+                        ingredients: "• 1 lata de atún en agua (~130g drenado)\n• 3 tortillas de maíz\n• 100g frijoles cocidos\n• 50g aguacate\n• 100g lechuga picada\n• Pepino al gusto, limón y sal", 
+                        prep: "1. Dorar las 3 tortillas de maíz en comal o air fryer sin aceite para hacerlas tostadas fogueadas.\n2. Calentar los 100g de frijoles cocidos y untarlos sobre las 3 tostadas.\n3. Drenar completamente el agua de la lata de atún, mezclarlo con jugo de limón, sal y pimienta.\n4. Distribuir el atún sobre las tostadas, agregar la lechuga, rodajas de pepino y rebanadas de aguacate." 
+                    }
+                ]
+            },
+            miercoles: {
+                phrase: "Mitad de semana, mi vida. Mírate al espejo y mira a la mujer increíble, guerrera y hermosa que eres. ¡Eres mi lugar favorito! 💕",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Avena Cremosa con Crema de Cacahuate + Huevos", 
+                        ingredients: "• 50g avena (peso crudo)\n• 200ml leche descremada\n• 1 plátano\n• 20g crema de cacahuate natural\n• 2 huevos + 100g claras", 
+                        prep: "1. En una olla pequeña, cocinar los 50g de avena con los 200ml de leche descremada a fuego medio durante 5-6 minutos revolviendo hasta espesar.\n2. Servir la avena en un tazón, agregar el plátano picado y mezclar los 20g de crema de cacahuate.\n3. Aparte, batir los 2 huevos con las 100g de claras y cocinarlos revueltos a la plancha con una pizca de sal." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Pollo a la Plancha con Pasta y Brócoli", 
+                        ingredients: "• 150g pechuga de pollo (peso crudo)\n• 70g pasta seca\n• 100g brócoli\n• 100g zanahoria\n• 5g aceite de oliva\n• Ajo, pimienta y paprika (🚫 Sin cebolla ni tomate)", 
+                        prep: "1. En una olla con agua hirviendo y sal, cocinar los 70g de pasta durante 8-10 minutos hasta que esté al dente. Drenar.\n2. Sazonar los 150g de pollo con ajo, pimienta y paprika. Cocinar a la plancha a fuego medio por 4-5 minutos por lado.\n3. Cocer el brócoli y la zanahoria al vapor por 6-8 minutos.\n4. Mezclar la pasta con las verduras, agregar los 5g de aceite de oliva crudo y acompañar con el pollo doradito." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Yogurt Griego con Manzana y Almendras", 
+                        ingredients: "• 200g yogurt griego natural sin azúcar\n• 1 manzana\n• 15g almendras integrales", 
+                        prep: "1. Servir los 200g de yogurt en un recipiente.\n2. Cortar la manzana en láminas finas o cubitos.\n3. Acompañar con la manzana y las almendras enteras o picadas." 
+                    },
+                    { 
+                        type: "CENA LIGERA", 
+                        time: "Noche", 
+                        title: "Carne Molida Magra con Papa y Calabacita", 
+                        ingredients: "• 150g carne molida de res magra (peso crudo)\n• 200g papa (peso crudo)\n• 150g calabacita picada\n• 2 tortillas de maíz\n• 5g aceite de oliva", 
+                        prep: "1. Hervir o cocinar en air fryer los 200g de papa cortada en cubitos con sal.\n2. En un sartén antiadherente, guisar la carne molida magra junto con la calabacita picada, sal, pimienta y ajo en polvo (sin cebolla ni tomate) durante 8-10 minutos.\n3. Mezclar la papa con la carne molida y verduras.\n4. Servir con los 5g de aceite de oliva crudo por encima y 2 tortillas calientes." 
+                    }
+                ]
+            },
+            jueves: {
+                phrase: "Cada día estás más cerca de todas tus metas. Gracias por ser la esposa maravillosa y mamá ejemplar que eres. ¡Orgulloso de ti siempre! 👑",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Huevos Revueltos, Tortillas, Avena y Naranja", 
+                        ingredients: "• 2 huevos + 120g claras\n• 2 tortillas de maíz\n• 150g yogurt griego natural\n• 1 naranja en gajos\n• 40g avena (peso crudo)", 
+                        prep: "1. Batir huevos y claras con sal y cocinar revueltos en sartén. Acompañar con 2 tortillas calientes.\n2. Cocinar los 40g de avena en agua con canela durante 5 minutos a fuego bajo.\n3. Disfrutar del yogurt griego y la naranja en gajos como postre fresco." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Pollo con Arroz, Brócoli y Aguacate", 
+                        ingredients: "• 150g pollo (peso crudo)\n• 70g arroz blanco (peso crudo)\n• 100g brócoli\n• 100g zanahoria\n• 50g aguacate\n• 5g aceite de oliva", 
+                        prep: "1. Cocinar el arroz en agua con sal a fuego lento por 15 minutos.\n2. Cocinar los 150g de pechuga de pollo a la plancha con sal, pimienta y ajo.\n3. Cocer el brócoli y la zanahoria al vapor.\n4. Servir todo en un plato hondo agregando el aguacate en láminas y el aceite de oliva." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Smoothie de Whey Protein con Plátano y Nueces", 
+                        ingredients: "• 1 scoop Whey Protein\n• 1 plátano mediano\n• 15g nueces", 
+                        prep: "1. Licuar el scoop de proteína con el plátano, 250ml de agua y hielo.\n2. Acompañar la bebida con las nueces picadas." 
+                    },
+                    { 
+                        type: "CENA LIGERA", 
+                        time: "Noche", 
+                        title: "Pescado Blanco con Papa al Horno", 
+                        ingredients: "• 130–150g filete de pescado blanco (peso crudo)\n• 250g papa (peso crudo)\n• 150g verduras permitidas (calabacita/brócoli)\n• 2 tortillas de maíz\n• 5g aceite de oliva", 
+                        prep: "1. Asar la papa en gajos en horno o air fryer durante 20 min.\n2. Cocinar el pescado a la plancha con limón, sal y ajo por 3 min por lado.\n3. Cocer las verduras al vapor.\n4. Servir caliente con 2 tortillas y aceite de oliva crudo por encima." 
+                    }
+                ]
+            },
+            viernes: {
+                phrase: "¡Llegamos al viernes, mi cielo! Tu constancia esta semana ha sido admirable. Disfruta hoy y recuerda cuánto te adoro. 🌹",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Huevos Revueltos, Avena, Plátano y Yogurt", 
+                        ingredients: "• 2 huevos + 120g claras\n• 50g avena (peso crudo)\n• 1 plátano mediano\n• 150g yogurt griego natural", 
+                        prep: "1. Preparar huevos y claras revueltos al sartén.\n2. Cocinar los 50g de avena con agua durante 5 minutos y servir con el plátano picado.\n3. Servir el yogurt griego a un lado." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Carne Magra con Arroz y Aguacate", 
+                        ingredients: "• 150g carne de res magra (peso crudo)\n• 70g arroz (peso crudo)\n• 150g verduras permitidas\n• 50g aguacate\n• 5g aceite de oliva", 
+                        prep: "1. Preparar el arroz blanco tradicional.\n2. Asar la carne de res magra a la plancha con pimienta y sal al gusto.\n3. Saltear las verduras en un sartén ligero.\n4. Emplatar con el aguacate fresco y aceite de oliva." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Yogurt Griego con Manzana y Nueces", 
+                        ingredients: "• 200g yogurt griego natural\n• 1 manzana\n• 15g nueces", 
+                        prep: "1. Picar la manzana fresca y mezclar con el yogurt griego y las nueces troceadas." 
+                    },
+                    { 
+                        type: "CENA LIGERA", 
+                        time: "Noche", 
+                        title: "Pollo a la Plancha con Papa y Brócoli", 
+                        ingredients: "• 150g pechuga de pollo (peso crudo)\n• 250g papa (peso crudo)\n• 150g brócoli o calabacita\n• 2 tortillas de maíz\n• 5g aceite de oliva", 
+                        prep: "1. Cocinar la papa hervida o al horno.\n2. Cocinar el pollo a la plancha bien dorado.\n3. Cocer el brócoli al vapor.\n4. Servir con tortillas calientes y el aceite de oliva." 
+                    }
+                ]
+            },
+            sabado: {
+                phrase: "¡Fin de semana, mi reina! Hora de relajarse, consentirte con tu comida libre y disfrutar juntos con Gael. ¡Te amo infinito! 🍕💖",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Huevos con Tortilla, Avena y Plátano", 
+                        ingredients: "• 2 huevos + 120g claras\n• 2 tortillas de maíz\n• 40g avena\n• 1 plátano\n• 150g yogurt griego", 
+                        prep: "1. Cocinar los huevos revueltos y acompañar con 2 tortillas calientes.\n2. Cocinar la avena con agua y plátano picado. Yogurt al lado." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Pollo con Arroz, Verduras y Aguacate", 
+                        ingredients: "• 150g pollo (peso crudo)\n• 70g arroz (peso crudo)\n• 150g verduras permitidas\n• 50g aguacate\n• 5g aceite de oliva", 
+                        prep: "1. Cocinar el pollo a la plancha con especias y ajo.\n2. Acompañar con arroz caliente, verduras al vapor y aguacate." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Smoothie de Whey Protein con Crema de Cacahuate", 
+                        ingredients: "• 1 scoop Whey Protein\n• 1 fruta a elección\n• 20g crema de cacahuate natural", 
+                        prep: "1. Licuar la proteína con la fruta elegida, la crema de cacahuate y agua/hielo." 
+                    },
+                    { 
+                        type: "CENA LIBRE 🍕✨", 
+                        time: "Noche / Comida Libre", 
+                        title: "🎉 Comida / Cena Libre Consentida", 
+                        ingredients: "• ¡Tu platillo o antojito favorito libre para disfrutar!", 
+                        prep: "Disfruta sin culpa de tu comida libre del fin de semana en familia con tu esposo y Gael. ¡Te lo mereces por todo tu esfuerzo de la semana! 💕" 
+                    }
+                ]
+            },
+            domingo: {
+                phrase: "Domingo de paz y recarga. Gracias por hacernos tan felices a Gael y a mí. Listos para seguir triunfando juntos. ¡Eres mi todo! 🌸✨",
+                meals: [
+                    { 
+                        type: "DESAYUNO PROTEICO", 
+                        time: "Post-Despertar", 
+                        title: "Huevos Revueltos, Avena y Yogurt Griego", 
+                        ingredients: "• 2 huevos + 120g claras\n• 50g avena\n• 1 plátano\n• 150g yogurt griego", 
+                        prep: "1. Huevos revueltos a la plancha.\n2. Avena caliente cocida con plátano y yogurt como acompañamiento." 
+                    },
+                    { 
+                        type: "ALMUERZO PRINCIPAL", 
+                        time: "Mediodía", 
+                        title: "Pollo o Pescado con Arroz y Aguacate", 
+                        ingredients: "• 150g pollo o pescado (peso crudo)\n• 70g arroz (peso crudo)\n• 150g verduras permitidas\n• 50g aguacate\n• 5g aceite de oliva", 
+                        prep: "1. Cocinar la proteína a la plancha con ajo y pimienta.\n2. Servir con arroz, verduras al vapor y aguacate rebanado." 
+                    },
+                    { 
+                        type: "COLACIÓN", 
+                        time: "Media Tarde", 
+                        title: "Yogurt Griego con Fruta Fresca y Nueces", 
+                        ingredients: "• 200g yogurt griego natural\n• 1 fruta permitida (manzana/naranja)\n• 15g nueces", 
+                        prep: "1. Mezclar la fruta fresca picada con el yogurt y las nueces troceadas." 
+                    },
+                    { 
+                        type: "CENA LIGERA", 
+                        time: "Noche", 
+                        title: "Carne Magra con Papa y Verduras", 
+                        ingredients: "• 150g carne magra (peso crudo)\n• 250g papa\n• 150g verduras\n• 2 tortillas\n• 5g aceite de oliva", 
+                        prep: "1. Cocinar la carne a la plancha.\n2. Acompañar con papa horneada o al vapor, verduras y 2 tortillas calientes." 
+                    }
+                ]
+            }
+        };
+
+        // Rutinas de Ejercicio con Pesos Recomendados
+        const workouts = {
+            lunes: {
+                title: "Lunes — Glúteos + Femorales",
+                time: "~50 min",
+                exercises: [
+                    { name: "Hip thrust muy ligero", series: "2 × 10", targetWeight: "Barra sola / 10-15 kg", note: "⚠️ IMPORTANTE: Solo si es cómodo. Si hay dolor en el glúteo, sustituir por puente sin peso." },
+                    { name: "Peso muerto rumano con mancuernas", series: "2 × 10", targetWeight: "Mancuernas 6-8 kg c/u", note: "Espalda totalmente recta, bajar controlado hasta debajo de las rodillas." },
+                    { name: "Curl femoral en máquina", series: "2 × 12", targetWeight: "15-20 kg", note: "Mantener la cadera pegada al cojín durante todo el movimiento." },
+                    { name: "Prensa de piernas", series: "2 × 12", targetWeight: "20-30 kg", note: "Pies a la anchura de los hombros. No bloquear rodillas arriba." },
+                    { name: "Abducción de cadera en máquina", series: "2 × 15–20", targetWeight: "25-30 kg", note: "Mantener 1 segundo de apretón al abrir al máximo." }
+                ]
+            },
+            martes: {
+                title: "Martes — Espalda + Hombros + Brazos",
+                time: "~50 min • Cardio post: 5-10 min caminata",
+                exercises: [
+                    { name: "Jalón al pecho", series: "2 × 10–12", targetWeight: "15-20 kg", note: "Llevar la barra hacia la parte superior del pecho, no detrás del cuello." },
+                    { name: "Remo sentado en polea", series: "2 × 10–12", targetWeight: "15-20 kg", note: "Llevar los codos hacia atrás pegados al cuerpo." },
+                    { name: "Press de hombro en máquina", series: "2 × 10", targetWeight: "5-10 kg", note: "Subir fluido sin forzar la articulación del hombro." },
+                    { name: "Elevaciones laterales", series: "2 × 15", targetWeight: "Mancuernas 2-3 kg c/u", note: "Mancuernas ligeras, elevar hasta la altura de los hombros." },
+                    { name: "Face pull en polea", series: "2 × 15", targetWeight: "10-12.5 kg", note: "Cuerda hacia la frente, excelente para postura." },
+                    { name: "Curl de bíceps con mancuernas", series: "2 × 12", targetWeight: "Mancuernas 3-4 kg c/u", note: "Codos fijos a los lados del torso." },
+                    { name: "Tríceps en polea", series: "2 × 12", targetWeight: "10-12.5 kg", note: "Extensión completa hacia abajo concentrando el esfuerzo." }
+                ]
+            },
+            miercoles: {
+                title: "Miércoles — Glúteos + Cuádriceps",
+                time: "~50 min",
+                exercises: [
+                    { name: "Sentadilla Goblet", series: "2 × 10", targetWeight: "Mancuerna 8-10 kg", note: "Mancuerna pegada al pecho. No buscar profundidad máxima esta semana 1." },
+                    { name: "Hip thrust / Puente de glúteo", series: "2 × 10", targetWeight: "10-15 kg", note: "Movimiento controlado sin dolor en la pompi." },
+                    { name: "Prensa de piernas", series: "2 × 12", targetWeight: "20-30 kg", note: "Carga ligera-moderada (RIR 3-4)." },
+                    { name: "Extensión de cuádriceps", series: "2 × 12–15", targetWeight: "15-20 kg", note: "Pausa de 1 segundo arriba." },
+                    { name: "Abducción de cadera", series: "2 × 15–20", targetWeight: "25-30 kg", note: "Tonificación de glúteo medio." },
+                    { name: "Reverse crunch (Abdomen)", series: "2 × 10–12", targetWeight: "Peso corporal", note: "Elevar pelvis hacia el pecho de forma suave." }
+                ]
+            },
+            jueves: {
+                title: "Jueves — Tren Superior + Abdomen (Recuperación)",
+                time: "~45 min • Cardio post: 10-15 min caminata",
+                exercises: [
+                    { name: "Jalón al pecho", series: "2 × 12", targetWeight: "15-20 kg", note: "Sesión suave para permitir recuperación." },
+                    { name: "Remo en máquina o polea", series: "2 × 12", targetWeight: "15-20 kg", note: "Enfoque en postura y ritmo constante." },
+                    { name: "Press de pecho en máquina", series: "2 × 10–12", targetWeight: "10-15 kg", note: "Empuje controlado sin molestias." },
+                    { name: "Elevaciones laterales", series: "2 × 15", targetWeight: "Mancuernas 2-3 kg c/u", note: "Peso muy ligero." },
+                    { name: "Face pull", series: "2 × 15", targetWeight: "10-12.5 kg", note: "Salud de hombros." },
+                    { name: "Cable crunch (Abdomen)", series: "2 × 12–15", targetWeight: "15-20 kg", note: "Flexión de tronco suave." },
+                    { name: "Pallof press", series: "2 × 10 / lado", targetWeight: "5-7.5 kg", note: "Estabilidad del core." }
+                ]
+            },
+            viernes: {
+                title: "Viernes — Glúteos + Piernas",
+                time: "~50 min",
+                exercises: [
+                    { name: "Hip thrust / Puente de glúteo", series: "2 × 10", targetWeight: "12-15 kg", note: "Evaluar si el glúteo respondió bien durante la semana." },
+                    { name: "Peso muerto rumano con mancuernas", series: "2 × 10", targetWeight: "Mancuernas 6-8 kg c/u", note: "Enfoque en femorales y glúteos." },
+                    { name: "Step-up bajo (por pierna)", series: "2 × 10", targetWeight: "Sin peso / 2 kg c/u", note: "⚠️ Si genera dolor en la pompi, eliminar durante esta semana." },
+                    { name: "Curl femoral", series: "2 × 12", targetWeight: "15-20 kg", note: "Trabajo posterior de pierna." },
+                    { name: "Extensión de cuádriceps", series: "2 × 12–15", targetWeight: "15-20 kg", note: "Movimiento fluido." },
+                    { name: "Abducción de cadera", series: "2 × 15–20", targetWeight: "25-30 kg", note: "Cierre de sesión." }
+                ]
+            },
+            finde: {
+                title: "Sábado y Domingo — Descanso Activo",
+                time: "Caminata suave 7,000–8,000 pasos",
+                exercises: [
+                    { name: "Descanso del gimnasio", series: "2 días", targetWeight: "Sin peso", note: "Permite la regeneración muscular. Salir a caminar normalmente con Gael y la familia." }
+                ]
+            }
+        };
+
+        const shoppingItems = {
+            proteinas: [
+                "Huevos frescos (18–24 unidades)",
+                "Claras pasteurizadas (~1 Litro)",
+                "Pechuga de pollo (~1.2 kg en crudo)",
+                "Carne de res magra (~600 g en crudo)",
+                "Pescado blanco (~500 g en crudo)",
+                "Atún en agua (2–3 latas)",
+                "Yogurt griego natural sin azúcar (~2 kg)",
+                "Whey protein (3 porciones)",
+                "Leche descremada (1 Litro)",
+                "Frijoles cocidos (~500 g)"
+            ],
+            carbs: [
+                "Avena en hojuelas (500 g)",
+                "Arroz blanco (500 g)",
+                "Pasta seca (250–500 g)",
+                "Papa fresca (2 kg)",
+                "Tortillas de maíz (~30 unidades)",
+                "Crema de cacahuate natural (1 frasco)",
+                "Plátanos (7–10 unidades)",
+                "Manzanas (4–5 unidades)",
+                "Naranjas (2–3 unidades)",
+                "Aguacates (4–5 piezas)",
+                "Nueces y Almendras (~150–200 g)",
+                "Aceite de oliva (250 ml)"
+            ],
+            verduras: [
+                "Brócoli fresco (~1 kg)",
+                "Calabacitas (~1 kg)",
+                "Zanahorias (~1 kg)",
+                "Lechuga (1 pieza)",
+                "Pepinos (2–3 piezas)",
+                "Limones y especias (ajo, pimienta, paprika)",
+                "🚫 NO COMPRAR: Cebolla, Tomate, Papaya, Guayaba, Hígado"
+            ],
+            skincare: [
+                "Niacinamida 10% + Zinc 1% (Sérum facial)",
+                "Retinol nocturno / Tratamiento antiedad",
+                "Protector solar amplio espectro SPF 50+",
+                "Limpiador facial suave pH neutro",
+                "Crema hidratante facial fluida"
+            ]
+        };
+
+        function getTodayDateKey() {
+            const d = new Date();
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+        }
+
+        let currentShift = localStorage.getItem('jessica_shift_v1') || 'manana';
+        let gaelPaused = localStorage.getItem('jessica_gael_paused_v1') === 'true';
+        let waterCount = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const shiftSelect = document.getElementById('shift-select');
+            if (shiftSelect) shiftSelect.value = currentShift;
+
+            if (gaelPaused) {
+                document.body.classList.add('modo-mama-dark');
+                const btn = document.getElementById('gael-btn');
+                if (btn) {
+                    btn.innerText = "REANUDAR DÍA";
+                    btn.className = "text-[10px] font-bold bg-amber-500 hover:bg-amber-600 text-white px-3 py-2 rounded-xl transition-all shrink-0 shadow-lg";
+                }
+            }
+
+            renderTimeline();
+            renderWaterGrid();
+            renderShopping();
+            
+            const daysMapWorkouts = ['finde', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'finde'];
+            const daysMapNutri = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
+            
+            const todayIdx = new Date().getDay();
+            const todayWorkoutKey = daysMapWorkouts[todayIdx];
+            const todayNutriKey = daysMapNutri[todayIdx];
+
+            const defaultWorkoutBtn = document.querySelector(`.day-btn[data-day="${todayWorkoutKey}"]`) || document.querySelector('.day-btn');
+            switchWorkoutDay(todayWorkoutKey, defaultWorkoutBtn);
+
+            const defaultNutriBtn = document.querySelector(`.nutri-btn[data-nday="${todayNutriKey}"]`) || document.querySelector('.nutri-btn');
+            switchNutriDay(todayNutriKey, defaultNutriBtn);
+
+            loadMetrics();
+            try {
+                const savedRealIcon = localStorage.getItem('custom_real_icon');
+                if (savedRealIcon) {
+                    document.querySelectorAll('img[alt="Jessica Kawaii"], img[alt="Jessica"]').forEach(img => img.src = savedRealIcon);
+                }
+            } catch (e) {}
+            loadMetaCarousel();
+            loadTimelapsePhotos();
+            loadFeedbackNotes();
+            
+            // Cargar foto de avance guardada si existe
+            try {
+                const savedPhoto = localStorage.getItem('today_progress_photo');
+                if (savedPhoto) {
+                    showPhotoPreview(savedPhoto);
+                }
+            } catch (e) {
+                console.warn("[Storage Warning] Error al leer today_progress_photo:", e);
+            }
+
+            // Verificador periódico de recordatorios inteligentes (cada 60 segundos)
+            function checkScheduledNotifications() {
+                const now = new Date();
+                const hh = String(now.getHours()).padStart(2, '0');
+                const mm = String(now.getMinutes()).padStart(2, '0');
+                const timeStr = `${hh}:${mm}`;
+                const dateKey = getTodayDateKey();
+
+                const schedule = [
+                    { time: "08:30", title: "🌅 Desayuno Proteico + Vaso #1 ✨", body: "Buenos días, Jessica. Tu desayuno y primer vaso de agua te esperan." },
+                    { time: "11:30", title: "💧 Hidratación (Vaso #4) 🌸", body: "Momento de tu cuarto vaso de agua para mantener tu piel y metabolismo activos." },
+                    { time: "13:15", title: "🥗 Almuerzo Principal Proteico 💪", body: "Tu almuerzo con proteína magra y carbohidratos complejos está listo." },
+                    { time: "16:15", title: "💪 15 min para el Gimnasio 🔥", body: "Toma tu creatina y llena tu botella de agua para darlo todo en el gym." },
+                    { time: "20:30", title: "🌙 Cena Ligera & Foto de Cierre 📸", body: "Cierra tu día nutritivamente y registra tu foto de avance en la app." }
+                ];
+
+                schedule.forEach((item, idx) => {
+                    if (item.time === timeStr) {
+                        const notifKey = `notif_sent_${dateKey}_${idx}`;
+                        if (!localStorage.getItem(notifKey)) {
+                            safeSetItem(notifKey, 'true');
+                            sendNativeNotif(item.title, item.body);
+                        }
+                    }
+                });
+            }
+            setInterval(checkScheduledNotifications, 60000);
+            checkScheduledNotifications();
+
+            setInterval(updateClock, 1000);
+            updateClock();
+        });
+
+        function changeShift(val) {
+            currentShift = val;
+            safeSetItem('jessica_shift_v1', val);
+            renderTimeline();
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const clockEl = document.getElementById('current-time-display');
+            if (clockEl) clockEl.innerText = timeStr;
+            updateActiveTask(now);
+        }
+
+        function renderTimeline() {
+            const container = document.getElementById('timeline-container');
+            if (!container) return;
+            container.innerHTML = schedules[currentShift].map(item => `
+                <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl flex items-center gap-3 border border-pink-100 shadow-sm">
+                    <div class="w-9 h-9 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm shrink-0">
+                        <i class="fa-solid ${item.icon}"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-xs text-pink-900">${item.title}</h4>
+                            <span class="text-[10px] font-mono text-pink-500 font-bold">${item.time}</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 mt-0.5">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateActiveTask(now) {
+            if (gaelPaused) {
+                const titleEl = document.getElementById('active-task-title');
+                const descEl = document.getElementById('active-task-desc');
+                if (titleEl) titleEl.innerText = "Pausa Prioridad Gael 👶💛";
+                if (descEl) descEl.innerText = "Atendiendo a tu bebé. Reanuda cuando estés lista.";
+                return;
+            }
+
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+            const list = schedules[currentShift];
+            
+            // Ajuste para la madrugada (00:00 hasta el primer despertar)
+            const [firstH, firstM] = list[0].time.split(':').map(Number);
+            const firstTaskMinutes = firstH * 60 + firstM;
+            
+            let currentTask = list[0];
+            if (currentMinutes < firstTaskMinutes) {
+                currentTask = {
+                    title: "Descanso Reparador / Sueño Profundo 🌙",
+                    desc: "Horas de sueño necesarias para la recuperación muscular y hormonal.",
+                    time: "00:00 - " + list[0].time,
+                    icon: "fa-bed"
+                };
+            } else {
+                for (let i = 0; i < list.length; i++) {
+                    const [h, m] = list[i].time.split(':').map(Number);
+                    if (currentMinutes >= (h * 60 + m)) {
+                        currentTask = list[i];
+                    }
+                }
+            }
+
+            const titleEl = document.getElementById('active-task-title');
+            const descEl = document.getElementById('active-task-desc');
+            if (titleEl) titleEl.innerText = currentTask.title;
+            if (descEl) descEl.innerText = currentTask.desc;
+        }
+
+        function toggleGaelPause(event) {
+            gaelPaused = !gaelPaused;
+            safeSetItem('jessica_gael_paused_v1', gaelPaused ? 'true' : 'false');
+            
+            // Animación de revelado circular expand/contract desde el centro o clic
+            const overlay = document.getElementById('circle-transition-overlay');
+            if (overlay) {
+                let x = 50, y = 50;
+                if (event && event.clientX) {
+                    x = Math.round((event.clientX / window.innerWidth) * 100);
+                    y = Math.round((event.clientY / window.innerHeight) * 100);
+                }
+                overlay.style.clipPath = `circle(0% at ${x}% ${y}%)`;
+                overlay.style.transition = 'clip-path 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
+                
+                // Forzar reflow para animación inmediata
+                void overlay.offsetWidth;
+                overlay.style.clipPath = `circle(160% at ${x}% ${y}%)`;
+                
+                setTimeout(() => {
+                    if (gaelPaused) {
+                        document.body.classList.add('modo-mama-dark');
+                    } else {
+                        document.body.classList.remove('modo-mama-dark');
+                    }
+                }, 280);
+
+                setTimeout(() => {
+                    overlay.style.clipPath = `circle(0% at ${x}% ${y}%)`;
+                }, 700);
+            } else {
+                if (gaelPaused) {
+                    document.body.classList.add('modo-mama-dark');
+                } else {
+                    document.body.classList.remove('modo-mama-dark');
+                }
+            }
+
+            const btn = document.getElementById('gael-btn');
+            if (!btn) return;
+            if (gaelPaused) {
+                btn.innerText = "REANUDAR DÍA";
+                btn.className = "text-[10px] font-bold bg-amber-500 hover:bg-amber-600 text-white px-3 py-2 rounded-xl transition-all shrink-0 shadow-lg scale-105";
+                const titleEl = document.getElementById('active-task-title');
+                const descEl = document.getElementById('active-task-desc');
+                if (titleEl) titleEl.innerText = "Modo Mamá Activo (Gael 👶💛)";
+                if (descEl) descEl.innerText = "Atendiendo a tu bebé con todo el amor. Cero presiones, reanuda cuando estés lista.";
+            } else {
+                btn.innerText = "PAUSAR DÍA";
+                btn.className = "text-[10px] font-bold bg-amber-300 hover:bg-amber-400 text-amber-900 px-3 py-2 rounded-xl transition-all shrink-0 shadow-sm";
+                updateClock();
+            }
+        }
+
+        /* --- TEMPORIZADOR DE DESCANSO ENTRE SERIES ⏱️ --- */
+        let restTimerInterval = null;
+        let restTimerSecondsLeft = 60;
+        let isRestTimerPaused = false;
+
+        function startRestTimer(seconds) {
+            if (restTimerInterval) clearInterval(restTimerInterval);
+            restTimerSecondsLeft = seconds;
+            isRestTimerPaused = false;
+            
+            const bar = document.getElementById('rest-timer-bar');
+            const pauseBtn = document.getElementById('rest-timer-pause-btn');
+            if (bar) bar.classList.remove('hidden');
+            if (pauseBtn) pauseBtn.innerText = "Pausar";
+            updateRestTimerDisplay();
+
+            restTimerInterval = setInterval(() => {
+                if (isRestTimerPaused) return;
+                restTimerSecondsLeft--;
+                updateRestTimerDisplay();
+
+                if (restTimerSecondsLeft <= 0) {
+                    clearInterval(restTimerInterval);
+                    restTimerInterval = null;
+                    playRestTimerAlarm();
+                }
+            }, 1000);
+        }
+
+        function updateRestTimerDisplay() {
+            const display = document.getElementById('rest-timer-display');
+            if (!display) return;
+            const mins = Math.floor(restTimerSecondsLeft / 60);
+            const secs = restTimerSecondsLeft % 60;
+            display.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function addRestTimerSeconds(secs) {
+            restTimerSecondsLeft += secs;
+            updateRestTimerDisplay();
+        }
+
+        function toggleRestTimerPause() {
+            isRestTimerPaused = !isRestTimerPaused;
+            const pauseBtn = document.getElementById('rest-timer-pause-btn');
+            if (pauseBtn) pauseBtn.innerText = isRestTimerPaused ? "Continuar" : "Pausar";
+        }
+
+        function closeRestTimer() {
+            if (restTimerInterval) clearInterval(restTimerInterval);
+            restTimerInterval = null;
+            const bar = document.getElementById('rest-timer-bar');
+            if (bar) bar.classList.add('hidden');
+        }
+
+        function playRestTimerAlarm() {
+            try {
+                if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 300]);
+            } catch (e) {}
+
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtx) {
+                    const ctx = new AudioCtx();
+                    const now = ctx.currentTime;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(587.33, now); // D5
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.25); // A5
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.5);
+                }
+            } catch (e) {
+                console.log("Audio alert:", e);
+            }
+
+            const display = document.getElementById('rest-timer-display');
+            if (display) display.innerText = "¡A entrenar! 💪";
+            setTimeout(closeRestTimer, 3200);
+        }
+
+        /* --- RECORDATORIOS INTELIGENTES (AGUA, COMIDAS, GYM) 🔔 --- */
+        function openNotificationModal() {
+            const modal = document.getElementById('notification-modal');
+            if (modal) modal.classList.remove('hidden');
+            updateNotifStatusUI();
+        }
+
+        function closeNotificationModal() {
+            const modal = document.getElementById('notification-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function updateNotifStatusUI() {
+            const statusText = document.getElementById('notif-status-text');
+            const permBtn = document.getElementById('notif-perm-btn');
+            if (!statusText || !permBtn) return;
+
+            if (!("Notification" in window)) {
+                statusText.innerText = "Estado: No soportado en este navegador";
+                permBtn.innerText = "No disponible";
+                permBtn.disabled = true;
+                return;
+            }
+
+            if (Notification.permission === "granted") {
+                statusText.innerText = "Estado: Activado ✅";
+                statusText.className = "text-[10px] text-emerald-600 font-bold";
+                permBtn.innerText = "Activo ✨";
+                permBtn.className = "kawaii-btn text-[11px] py-1.5 px-3 bg-gradient-to-r from-emerald-500 to-teal-500";
+            } else if (Notification.permission === "denied") {
+                statusText.innerText = "Estado: Bloqueado en permisos del móvil ⚠️";
+                statusText.className = "text-[10px] text-rose-500 font-bold";
+                permBtn.innerText = "Permitir";
+            } else {
+                statusText.innerText = "Estado: Pendiente de activar";
+                statusText.className = "text-[10px] text-pink-600 font-bold";
+                permBtn.innerText = "Activar 🔔";
+            }
+        }
+
+        function requestNotificationPermission() {
+            if (!("Notification" in window)) {
+                showStorageWarningNotification("Las notificaciones no están disponibles en este modo de visualización 💕");
+                return;
+            }
+
+            Notification.requestPermission().then(permission => {
+                updateNotifStatusUI();
+                if (permission === "granted") {
+                    sendNativeNotif("¡Recordatorios Activados! ✨", "Jessica, te avisaremos oportunamente para tu agua, comidas y gym.");
+                    showStorageWarningNotification("¡Recordatorios activados correctamente! 🔔✨");
+                }
+            });
+        }
+
+        function testNotificationAlert() {
+            sendNativeNotif("💧 Momento de hidratarte, Jessica ✨", "Toma tu vaso de agua para mantener tu piel luminosa y tu energía al máximo.");
+            showStorageWarningNotification("🔔 ¡Notificación de prueba enviada!");
+        }
+
+        function sendNativeNotif(title, body) {
+            if ("Notification" in window && Notification.permission === "granted") {
+                try {
+                    new Notification(title, {
+                        body: body,
+                        icon: 'icon.png'
+                    });
+                } catch (e) {
+                    console.warn("Notification error:", e);
+                }
+            }
+        }
+
+        function renderWaterGrid() {
+            const grid = document.getElementById('water-grid');
+            if (!grid) return;
+            const dateKey = getTodayDateKey();
+            const savedToday = localStorage.getItem(`water_count_v3_${dateKey}`);
+            const savedWater = savedToday !== null ? savedToday : (localStorage.getItem('water_count_v3') || '0');
+            const parsed = parseInt(savedWater, 10);
+            waterCount = isNaN(parsed) ? 0 : parsed;
+            const countEl = document.getElementById('water-count');
+            if (countEl) countEl.innerText = `${waterCount} / 10 Vasos`;
+
+            grid.innerHTML = Array.from({length: 10}).map((_, i) => `
+                <button onclick="toggleWater(${i})" class="h-10 rounded-xl flex items-center justify-center transition-all ${i < waterCount ? 'bg-blue-400 text-white shadow-md scale-105' : 'bg-blue-50/80 text-blue-300 border border-blue-200'}">
+                    <i class="fa-solid fa-glass-water text-sm"></i>
+                </button>
+            `).join('');
+        }
+
+        function toggleWater(index) {
+            const dateKey = getTodayDateKey();
+            const previousWater = waterCount;
+            const targetWater = (index + 1 === waterCount) ? index : index + 1;
+            const ok = safeSetItem(`water_count_v3_${dateKey}`, targetWater) && safeSetItem('water_count_v3', targetWater);
+            if (ok) {
+                waterCount = targetWater;
+                renderWaterGrid();
+                calculateProgress();
+            } else {
+                waterCount = previousWater;
+                showStorageWarningNotification("No se pudo guardar la hidratación (almacenamiento lleno) ⚠️");
+            }
+        }
+
+        /* --- MEDIDOR DE PROGRESO GLOBAL INTEGRADO --- */
+        function calculateProgress() {
+            const dateKey = getTodayDateKey();
+            const daysMapNutri = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
+            const todayNutriKey = daysMapNutri[new Date().getDay()];
+            const daysMapWorkouts = ['finde', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'finde'];
+            const todayWorkoutKey = daysMapWorkouts[new Date().getDay()];
+
+            // 1. Vasos de agua (hasta 10 puntos)
+            const waterScore = waterCount;
+
+            // 2. Comidas completadas hoy (4 puntos)
+            let mealScore = 0;
+            const todayMeals = nutritionData[todayNutriKey] ? nutritionData[todayNutriKey].meals : [];
+            todayMeals.forEach((_, idx) => {
+                const done = (localStorage.getItem(`meal_check_${todayNutriKey}_${idx}_${dateKey}`) || localStorage.getItem(`meal_check_${todayNutriKey}_${idx}`)) === 'true';
+                if (done) mealScore++;
+            });
+
+            // 3. Ejercicios completados hoy (5-7 puntos)
+            let exScore = 0;
+            const todayExercises = workouts[todayWorkoutKey] ? workouts[todayWorkoutKey].exercises : [];
+            todayExercises.forEach((_, idx) => {
+                const done = (localStorage.getItem(`ex_check_${todayWorkoutKey}_${idx}_${dateKey}`) || localStorage.getItem(`ex_check_${todayWorkoutKey}_${idx}`)) === 'true';
+                if (done) exScore++;
+            });
+
+            const totalPossible = 10 + (todayMeals.length || 4) + (todayExercises.length || 5);
+            const totalAchieved = waterScore + mealScore + exScore;
+            const pct = Math.round((totalAchieved / totalPossible) * 100);
+
+            const txtEl = document.getElementById('daily-progress-text');
+            const barEl = document.getElementById('daily-progress-bar');
+            if (txtEl) txtEl.innerText = `${pct}%`;
+            if (barEl) barEl.style.width = `${pct}%`;
+        }
+
+        function toggleMealCheck(dayKey, mealIdx) {
+            const dateKey = getTodayDateKey();
+            const keyToday = `meal_check_${dayKey}_${mealIdx}_${dateKey}`;
+            const keyLegacy = `meal_check_${dayKey}_${mealIdx}`;
+            const isDone = (localStorage.getItem(keyToday) || localStorage.getItem(keyLegacy)) === 'true';
+            
+            const ok = safeSetItem(keyToday, !isDone) && safeSetItem(keyLegacy, !isDone);
+            if (ok) {
+                switchNutriDay(dayKey, document.querySelector(`.nutri-btn[data-nday="${dayKey}"]`));
+                calculateProgress();
+            } else {
+                showStorageWarningNotification("No se pudo guardar el estado de la comida (almacenamiento lleno) ⚠️");
+                switchNutriDay(dayKey, document.querySelector(`.nutri-btn[data-nday="${dayKey}"]`));
+            }
+        }
+
+        function toggleWorkoutCheck(dayKey, exIdx) {
+            const dateKey = getTodayDateKey();
+            const keyToday = `ex_check_${dayKey}_${exIdx}_${dateKey}`;
+            const keyLegacy = `ex_check_${dayKey}_${exIdx}`;
+            const isDone = (localStorage.getItem(keyToday) || localStorage.getItem(keyLegacy)) === 'true';
+            
+            const ok = safeSetItem(keyToday, !isDone) && safeSetItem(keyLegacy, !isDone);
+            if (ok) {
+                switchWorkoutDay(dayKey, document.querySelector(`.day-btn[data-day="${dayKey}"]`));
+                calculateProgress();
+            } else {
+                showStorageWarningNotification("No se pudo guardar el ejercicio (almacenamiento lleno) ⚠️");
+                switchWorkoutDay(dayKey, document.querySelector(`.day-btn[data-day="${dayKey}"]`));
+            }
+        }
+
+        function switchNutriDay(dayKey, btn) {
+            const dateKey = getTodayDateKey();
+            document.querySelectorAll('.nutri-btn').forEach(b => {
+                b.classList.remove('bg-pink-500', 'text-white', 'border-pink-500');
+                b.classList.add('bg-white', 'text-pink-600');
+            });
+            if (btn) {
+                btn.classList.remove('bg-white', 'text-pink-600');
+                btn.classList.add('bg-pink-500', 'text-white', 'border-pink-500');
+            }
+
+            const dayData = nutritionData[dayKey];
+            if (!dayData) return;
+            const phraseEl = document.getElementById('daily-romantic-phrase');
+            if (phraseEl) phraseEl.innerText = `"${dayData.phrase}"`;
+
+            const container = document.getElementById('nutri-day-content');
+            if (!container) return;
+            container.innerHTML = dayData.meals.map((meal, mIdx) => {
+                const isMealDone = (localStorage.getItem(`meal_check_${dayKey}_${mIdx}_${dateKey}`) || localStorage.getItem(`meal_check_${dayKey}_${mIdx}`)) === 'true';
+                return `
+                    <div class="ios-glass p-4 space-y-2 border-l-4 ${meal.type.includes('LIBRE') ? 'border-l-amber-400 bg-amber-50/40' : 'border-l-pink-400'}">
+                        <div class="flex justify-between items-center">
+                            <span class="kawaii-badge text-[9px] px-2 py-0.5">${meal.type}</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] text-gray-500 font-bold">${meal.time}</span>
+                                <label class="flex items-center gap-1 cursor-pointer bg-pink-50 px-2 py-0.5 rounded-xl border border-pink-200">
+                                    <input type="checkbox" onchange="toggleMealCheck('${dayKey}', ${mIdx})" ${isMealDone ? 'checked' : ''} class="w-3.5 h-3.5 accent-pink-500 rounded">
+                                    <span class="text-[9px] font-bold ${isMealDone ? 'text-pink-600' : 'text-gray-500'}">${isMealDone ? '¡Listo!' : 'Marcar'}</span>
+                                </label>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-sm text-pink-700">${meal.title}</h3>
+                        <div class="text-[11px] text-gray-600 space-y-2 pt-1">
+                            <div>
+                                <strong class="text-pink-800 block mb-0.5">🥣 Ingredientes y Porciones:</strong>
+                                <p class="whitespace-pre-line text-gray-700 bg-white/60 p-2 rounded-xl border border-pink-100">${meal.ingredients}</p>
+                            </div>
+                            <div>
+                                <strong class="text-pink-800 block mb-0.5">🍳 Instrucciones de Preparación:</strong>
+                                <p class="whitespace-pre-line text-gray-700 bg-pink-50/60 p-2.5 rounded-xl border border-pink-100 font-medium leading-relaxed">${meal.prep}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function switchWorkoutDay(dayKey, btn) {
+            const dateKey = getTodayDateKey();
+            document.querySelectorAll('.day-btn').forEach(b => {
+                b.classList.remove('bg-pink-500', 'text-white', 'border-pink-500');
+                b.classList.add('bg-white', 'text-pink-600');
+            });
+            if (btn) {
+                btn.classList.remove('bg-white', 'text-pink-600');
+                btn.classList.add('bg-pink-500', 'text-white', 'border-pink-500');
+            }
+
+            const dayData = workouts[dayKey];
+            if (!dayData) return;
+            const container = document.getElementById('workout-day-content');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="flex justify-between items-center bg-white/80 p-3 rounded-2xl border border-pink-200">
+                    <h3 class="font-bold text-xs text-pink-700">${dayData.title}</h3>
+                    <span class="text-[10px] font-bold text-pink-500 bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">${dayData.time}</span>
+                </div>
+                ${dayData.exercises.map((ex, idx) => {
+                    const isExDone = (localStorage.getItem(`ex_check_${dayKey}_${idx}_${dateKey}`) || localStorage.getItem(`ex_check_${dayKey}_${idx}`)) === 'true';
+                    return `
+                        <div class="ios-glass p-3.5 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-xs text-pink-900">${idx + 1}. ${ex.name}</h4>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <span class="text-[10px] font-bold text-pink-500">${ex.series}</span>
+                                        <span class="text-[9px] font-bold text-purple-600 bg-purple-100/80 px-2 py-0.5 rounded-md border border-purple-200">🎯 ${ex.targetWeight || 'Sugerido: Ligero'}</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <label class="flex items-center gap-1 cursor-pointer bg-pink-50 px-2 py-1 rounded-xl border border-pink-200">
+                                        <input type="checkbox" onchange="toggleWorkoutCheck('${dayKey}', ${idx})" ${isExDone ? 'checked' : ''} class="w-3.5 h-3.5 accent-pink-500 rounded">
+                                        <span class="text-[9px] font-bold ${isExDone ? 'text-pink-600' : 'text-gray-500'}">${isExDone ? '¡Listo!' : 'Hecho'}</span>
+                                    </label>
+                                    <a href="https://www.youtube.com/results?search_query=${encodeURIComponent('como hacer ' + ex.name)}" target="_blank" class="text-[10px] font-bold bg-rose-100/80 text-rose-600 border border-rose-300 px-2 py-1 rounded-xl flex items-center gap-1 shadow-sm">
+                                        🎬 Demo
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-gray-600 bg-pink-50/80 p-2 rounded-xl border border-pink-100">${ex.note}</p>
+                            
+                            <div class="grid grid-cols-3 gap-2 pt-1">
+                                <div>
+                                    <label class="text-[9px] font-bold text-gray-500 block">PESO (KG):</label>
+                                    <input type="number" id="w_${dayKey}_${idx}" onchange="saveWorkoutLog('${dayKey}', ${idx})" placeholder="0" class="w-full bg-white/90 border border-pink-200 rounded-lg p-1 text-xs text-center font-bold text-pink-700">
+                                </div>
+                                <div>
+                                    <label class="text-[9px] font-bold text-gray-500 block">REPS:</label>
+                                    <input type="number" id="r_${dayKey}_${idx}" onchange="saveWorkoutLog('${dayKey}', ${idx})" placeholder="0" class="w-full bg-white/90 border border-pink-200 rounded-lg p-1 text-xs text-center font-bold text-pink-700">
+                                </div>
+                                <div>
+                                    <label class="text-[9px] font-bold text-amber-600 block">DOLOR (0-10):</label>
+                                    <input type="number" id="p_${dayKey}_${idx}" onchange="saveWorkoutLog('${dayKey}', ${idx})" placeholder="0" class="w-full bg-amber-50/90 border border-amber-300 rounded-lg p-1 text-xs text-center font-bold text-amber-700">
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            `;
+
+            dayData.exercises.forEach((_, idx) => {
+                const saved = safeJsonParse(localStorage.getItem(`wlog_${dayKey}_${idx}_${dateKey}`) || localStorage.getItem(`wlog_${dayKey}_${idx}`), {});
+                const wInput = document.getElementById(`w_${dayKey}_${idx}`);
+                const rInput = document.getElementById(`r_${dayKey}_${idx}`);
+                const pInput = document.getElementById(`p_${dayKey}_${idx}`);
+                if (saved.w && wInput) wInput.value = saved.w;
+                if (saved.r && rInput) rInput.value = saved.r;
+                if (saved.p && pInput) pInput.value = saved.p;
+            });
+        }
+
+        function saveWorkoutLog(dayKey, idx) {
+            const wEl = document.getElementById(`w_${dayKey}_${idx}`);
+            const rEl = document.getElementById(`r_${dayKey}_${idx}`);
+            const pEl = document.getElementById(`p_${dayKey}_${idx}`);
+            if (!wEl || !rEl || !pEl) return;
+            const w = wEl.value;
+            const r = rEl.value;
+            const p = pEl.value;
+            const ok = safeSetItem(`wlog_${dayKey}_${idx}`, JSON.stringify({ w, r, p }));
+            if (!ok) {
+                showStorageWarningNotification("No se pudo guardar el registro del ejercicio (almacenamiento lleno) ⚠️");
+            }
+        }
+
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            const target = document.getElementById('tab-' + tabId);
+            if (!target) return;
+            target.classList.remove('hidden');
+            
+            const main = document.getElementById('main-content');
+            if (main) {
+                main.classList.remove('tab-animate');
+                void main.offsetWidth;
+                main.classList.add('tab-animate');
+            }
+
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('text-pink-500');
+                b.classList.add('text-gray-400');
+            });
+            if (btn) {
+                btn.classList.remove('text-gray-400');
+                btn.classList.add('text-pink-500');
+            }
+        }
+
+        function renderShopping() {
+            const saved = safeJsonParse(localStorage.getItem('shop_state_v3'), {});
+            
+            Object.keys(shoppingItems).forEach(cat => {
+                const el = document.getElementById('shop-' + cat);
+                if (!el) return;
+                el.innerHTML = shoppingItems[cat].map((item, idx) => {
+                    const key = `${cat}_${idx}`;
+                    return `
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" onchange="saveShop('${key}', this.checked)" ${saved[key] ? 'checked' : ''} class="w-4 h-4 accent-pink-500 rounded">
+                            <span class="${saved[key] ? 'line-through text-gray-400' : 'text-gray-700 font-medium'}">${item}</span>
+                        </label>
+                    `;
+                }).join('');
+            });
+        }
+
+        function saveShop(key, checked) {
+            const saved = safeJsonParse(localStorage.getItem('shop_state_v3'), {});
+            saved[key] = checked;
+            const ok = safeSetItem('shop_state_v3', JSON.stringify(saved));
+            if (!ok) {
+                showStorageWarningNotification("No se pudo guardar la lista de compras (almacenamiento lleno) ⚠️");
+            }
+            renderShopping();
+        }
+
+        function clearShopping() {
+            try {
+                localStorage.removeItem('shop_state_v3');
+            } catch (e) {
+                console.warn("[Storage Warning] Error al limpiar compras:", e);
+            }
+            renderShopping();
+        }
+
+        function saveMetrics() {
+            const pesoEl = document.getElementById('act-peso');
+            const cinturaEl = document.getElementById('act-cintura');
+            const gluteoEl = document.getElementById('act-gluteo');
+            const bustoEl = document.getElementById('act-busto');
+            const musloEl = document.getElementById('act-muslo');
+            
+            const data = {
+                peso: pesoEl ? pesoEl.value : '',
+                cintura: cinturaEl ? cinturaEl.value : '',
+                gluteo: gluteoEl ? gluteoEl.value : '',
+                busto: bustoEl ? bustoEl.value : '',
+                muslo: musloEl ? musloEl.value : ''
+            };
+            const toast = document.getElementById('metrics-toast');
+            const ok = safeSetItem('jessica_act_metrics', JSON.stringify(data));
+            if (ok) {
+                if (toast) {
+                    toast.innerText = "¡Medidas actuales guardadas con éxito! 💕";
+                    toast.className = "text-[11px] text-center text-pink-600 font-bold";
+                    toast.classList.remove('hidden');
+                    setTimeout(() => toast.classList.add('hidden'), 3000);
+                }
+            } else {
+                if (toast) {
+                    toast.innerText = "No se pudieron guardar las medidas (almacenamiento lleno) ⚠️";
+                    toast.className = "text-[11px] text-center text-amber-600 font-bold";
+                    toast.classList.remove('hidden');
+                    setTimeout(() => toast.classList.add('hidden'), 3500);
+                }
+            }
+        }
+
+        function loadMetrics() {
+            const saved = safeJsonParse(localStorage.getItem('jessica_act_metrics'), {});
+            const pesoEl = document.getElementById('act-peso');
+            const cinturaEl = document.getElementById('act-cintura');
+            const gluteoEl = document.getElementById('act-gluteo');
+            const bustoEl = document.getElementById('act-busto');
+            const musloEl = document.getElementById('act-muslo');
+            if (saved.peso && pesoEl) pesoEl.value = saved.peso;
+            if (saved.cintura && cinturaEl) cinturaEl.value = saved.cintura;
+            if (saved.gluteo && gluteoEl) gluteoEl.value = saved.gluteo;
+            if (saved.busto && bustoEl) bustoEl.value = saved.busto;
+            if (saved.muslo && musloEl) musloEl.value = saved.muslo;
+        }
+
+        function handleProgressPhoto(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    try {
+                        const canvas = document.createElement('canvas');
+                        const MAX_WIDTH = 600;
+                        const scale = MAX_WIDTH / img.width;
+                        canvas.width = MAX_WIDTH;
+                        canvas.height = img.height * scale;
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                        const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+                        const ok = safeSetItem('today_progress_photo', compressedBase64);
+                        if (ok) {
+                            showPhotoPreview(compressedBase64);
+                            if (typeof loadTimelapsePhotos === 'function') loadTimelapsePhotos();
+                        } else {
+                            // No elimina la fotografía que ya estaba guardada y notifica
+                            showStorageWarningNotification("No se pudo guardar la foto de avance por falta de espacio en el dispositivo 💕");
+                        }
+                    } catch (err) {
+                        console.warn("[Storage Warning] Error procesando foto de avance:", err);
+                        showStorageWarningNotification("Error al procesar la foto de avance ⚠️");
+                    }
+                };
+                img.onerror = function() {
+                    showStorageWarningNotification("No se pudo cargar la imagen seleccionada ⚠️");
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showPhotoPreview(base64Src) {
+            const container = document.getElementById('photo-preview-container');
+            const img = document.getElementById('today-photo-img');
+            if (base64Src && container && img) {
+                img.src = base64Src;
+                container.classList.remove('hidden');
+            }
+        }
+
+        /* --- GESTIÓN DE FOTOS OFICIALES REALES DEFINITIVAS --- */
+        async function uploadRealAsset(type, event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            const statusEl = document.getElementById('upload-asset-status');
+            if (statusEl) {
+                statusEl.innerText = "Guardando tu imagen oficial permanentemente...";
+                statusEl.className = "text-[10px] text-center font-bold text-pink-700 bg-pink-100 p-1.5 rounded-xl block";
+            }
+
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const base64 = e.target.result;
+                try {
+                    const payload = {};
+                    if (type === 'icon') payload.iconBase64 = base64;
+                    if (type === 'meta') payload.metaBase64 = base64;
+
+                    const res = await fetch('/api/upload-official-assets', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (type === 'icon') {
+                        localStorage.setItem('custom_real_icon', base64);
+                        document.querySelectorAll('img[alt="Jessica Kawaii"], img[alt="Jessica"]').forEach(img => img.src = base64);
+                    }
+                    if (type === 'meta') {
+                        localStorage.setItem('custom_real_meta', base64);
+                        defaultMetaPhotos = [base64];
+                        loadMetaCarousel();
+                    }
+
+                    if (statusEl) {
+                        statusEl.innerText = type === 'icon' ? "✅ ¡Ícono real fijado para siempre!" : "✅ ¡Foto real de Jessica fijada para siempre!";
+                        statusEl.className = "text-[10px] text-center font-bold text-emerald-700 bg-emerald-100 p-1.5 rounded-xl block";
+                        setTimeout(() => statusEl.classList.add('hidden'), 4000);
+                    }
+                } catch (err) {
+                    if (type === 'icon') {
+                        localStorage.setItem('custom_real_icon', base64);
+                        document.querySelectorAll('img[alt="Jessica Kawaii"], img[alt="Jessica"]').forEach(img => img.src = base64);
+                    }
+                    if (type === 'meta') {
+                        localStorage.setItem('custom_real_meta', base64);
+                        defaultMetaPhotos = [base64];
+                        loadMetaCarousel();
+                    }
+                    if (statusEl) {
+                        statusEl.innerText = "✅ ¡Foto actualizada correctamente!";
+                        statusEl.className = "text-[10px] text-center font-bold text-emerald-700 bg-emerald-100 p-1.5 rounded-xl block";
+                        setTimeout(() => statusEl.classList.add('hidden'), 4000);
+                    }
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        /* --- GALERÍA ACUMULATIVA CON CARROUSEL ESTILO IPHONE --- */
+        let defaultMetaPhotos = localStorage.getItem('custom_real_meta') ? [localStorage.getItem('custom_real_meta')] : ['meta_jessica.jpg'];
+
+        function handleMultipleMetaPhotos(event) {
+            const files = Array.from(event.target.files || []);
+            if (!files.length) return;
+
+            let uploadedBase64 = [];
+            let processed = 0;
+
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        try {
+                            const canvas = document.createElement('canvas');
+                            const MAX_WIDTH = 800;
+                            const scale = MAX_WIDTH / img.width;
+                            canvas.width = MAX_WIDTH;
+                            canvas.height = img.height * scale;
+
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                            const compressedBase64 = canvas.toDataURL('image/jpeg', 0.75);
+                            uploadedBase64.push(compressedBase64);
+                        } catch (err) {
+                            console.warn("[Storage Warning] Error procesando imagen en canvas:", err);
+                        }
+                        processed++;
+
+                        if (processed === files.length) {
+                            if (uploadedBase64.length === 0) return;
+                            const existing = safeJsonParse(localStorage.getItem('custom_meta_photos_v4'), []);
+                            const combined = [...existing, ...uploadedBase64];
+                            const ok = safeSetItem('custom_meta_photos_v4', JSON.stringify(combined));
+                            if (ok) {
+                                loadMetaCarousel();
+                                if (typeof loadTimelapsePhotos === 'function') loadTimelapsePhotos();
+                            } else {
+                                // Conserva intacto el array anterior en localStorage
+                                // No se sobreescribe ni se borra ninguna foto existente
+                                showStorageWarningNotification("Espacio insuficiente en el dispositivo para guardar más fotos. Prueba eliminando fotos anteriores 💕");
+                            }
+                        }
+                    };
+                    img.onerror = function() {
+                        processed++;
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function removeMetaPhoto(index) {
+            let savedPhotos = safeJsonParse(localStorage.getItem('custom_meta_photos_v4'), []);
+            if (savedPhotos.length > 0 && index >= 0 && index < savedPhotos.length) {
+                const copy = [...savedPhotos];
+                copy.splice(index, 1);
+                const ok = safeSetItem('custom_meta_photos_v4', JSON.stringify(copy));
+                if (ok) {
+                    loadMetaCarousel();
+                }
+            }
+        }
+
+        function loadMetaCarousel() {
+            const savedPhotos = safeJsonParse(localStorage.getItem('custom_meta_photos_v4'), []);
+            const photosToDisplay = savedPhotos.length > 0 ? savedPhotos : defaultMetaPhotos;
+
+            const carousel = document.getElementById('meta-carousel');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const resetBtn = document.getElementById('reset-meta-photos-btn');
+            if (!carousel || !dotsContainer) return;
+
+            if (resetBtn) {
+                if (savedPhotos.length > 0) {
+                    resetBtn.classList.remove('hidden');
+                } else {
+                    resetBtn.classList.add('hidden');
+                }
+            }
+
+            carousel.innerHTML = photosToDisplay.map((src, i) => `
+                <div class="snap-center shrink-0 w-full h-full relative">
+                    <img src="${src}" onerror="this.onerror=null; this.src='meta_jessica.jpg';" alt="El cuerpo que te espera" class="w-full h-full object-cover">
+                    ${savedPhotos.length > 0 ? `
+                        <button onclick="removeMetaPhoto(${i})" class="absolute top-2 right-2 bg-pink-600/80 hover:bg-pink-700 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs shadow-md z-10">
+                            ✕
+                        </button>
+                    ` : ''}
+                </div>
+            `).join('');
+
+            dotsContainer.innerHTML = photosToDisplay.map((_, i) => `
+                <span class="carousel-dot w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-pink-500 w-4' : 'bg-pink-200'}" data-index="${i}"></span>
+            `).join('');
+        }
+
+        function updateCarouselDots() {
+            const carousel = document.getElementById('meta-carousel');
+            if (!carousel) return;
+            const width = carousel.offsetWidth;
+            const activeIndex = Math.round(carousel.scrollLeft / width);
+
+            document.querySelectorAll('.carousel-dot').forEach((dot, idx) => {
+                if (idx === activeIndex) {
+                    dot.classList.remove('bg-pink-200', 'w-2');
+                    dot.classList.add('bg-pink-500', 'w-4');
+                } else {
+                    dot.classList.remove('bg-pink-500', 'w-4');
+                    dot.classList.add('bg-pink-200', 'w-2');
+                }
+            });
+        }
+
+        function clearCustomMetaPhotos() {
+            try {
+                localStorage.removeItem('custom_meta_photos_v4');
+            } catch (e) {
+                console.warn("[Storage Warning] Error al limpiar fotos de meta:", e);
+            }
+            loadMetaCarousel();
+            loadTimelapsePhotos();
+        }
+
+        /* --- TIMELAPSE DE TRANSFORMACIÓN (48 SEMANAS) --- */
+        let timelapsePhotosList = [];
+        let timelapseInterval = null;
+        let isTimelapsePlaying = false;
+        let currentTimelapseIndex = 0;
+
+        function loadTimelapsePhotos() {
+            const list = [];
+
+            // 1. Fotos acumuladas en el historial de días cerrados
+            const history = safeJsonParse(localStorage.getItem('jessica_weekly_history_v1'), []);
+            history.forEach((h, hIdx) => {
+                if (h.photoBase64) {
+                    list.push({ date: h.date, label: `Día ${hIdx + 1} • ${h.dayName || ''}`, src: h.photoBase64 });
+                }
+            });
+
+            // 2. Foto de hoy si ya la tomó
+            const todayPhoto = localStorage.getItem('today_progress_photo');
+            const todayDate = getTodayDateKey();
+            if (todayPhoto && !list.some(item => item.date === todayDate)) {
+                list.push({ date: todayDate, label: `Día ${list.length + 1} (Hoy)`, src: todayPhoto });
+            }
+
+            timelapsePhotosList = list;
+
+            const slider = document.getElementById('timelapse-slider');
+            const badge = document.getElementById('timelapse-count-badge');
+            const emptyState = document.getElementById('timelapse-empty-state');
+            const viewerImg = document.getElementById('timelapse-viewer-img');
+            const overlay = document.getElementById('timelapse-overlay');
+            const playBtn = document.getElementById('timelapse-play-btn');
+
+            if (timelapsePhotosList.length === 0) {
+                if (emptyState) emptyState.classList.remove('hidden');
+                if (viewerImg) {
+                    viewerImg.classList.add('hidden');
+                    viewerImg.src = '';
+                }
+                if (overlay) overlay.classList.add('hidden');
+                if (badge) badge.innerText = "0 Fotos";
+                if (slider) {
+                    slider.max = 0;
+                    slider.value = 0;
+                    slider.disabled = true;
+                }
+                if (playBtn) playBtn.classList.add('opacity-50', 'pointer-events-none');
+                return;
+            }
+
+            // Si hay fotos registradas
+            if (emptyState) emptyState.classList.add('hidden');
+            if (viewerImg) viewerImg.classList.remove('hidden');
+            if (overlay) overlay.classList.remove('hidden');
+            if (playBtn) playBtn.classList.remove('opacity-50', 'pointer-events-none');
+
+            if (slider) {
+                slider.disabled = false;
+                slider.max = Math.max(0, timelapsePhotosList.length - 1);
+                slider.value = currentTimelapseIndex;
+            }
+            if (badge) {
+                badge.innerText = `${timelapsePhotosList.length} ${timelapsePhotosList.length === 1 ? 'Foto' : 'Fotos'}`;
+            }
+
+            renderTimelapseFrame(currentTimelapseIndex);
+        }
+
+        function renderTimelapseFrame(index) {
+            if (!timelapsePhotosList.length) return;
+            if (index < 0) index = 0;
+            if (index >= timelapsePhotosList.length) index = timelapsePhotosList.length - 1;
+            currentTimelapseIndex = index;
+
+            const item = timelapsePhotosList[index];
+            const img = document.getElementById('timelapse-viewer-img');
+            const dateEl = document.getElementById('timelapse-photo-date');
+            const indexEl = document.getElementById('timelapse-photo-index');
+            const slider = document.getElementById('timelapse-slider');
+
+            if (img && item) {
+                img.src = item.src;
+                img.classList.remove('hidden');
+            }
+            if (dateEl && item) dateEl.innerText = `${item.label} • ${item.date}`;
+            if (indexEl) indexEl.innerText = `${index + 1} / ${timelapsePhotosList.length}`;
+            if (slider) slider.value = index;
+        }
+
+        function onTimelapseSliderChange(val) {
+            pauseTimelapse();
+            renderTimelapseFrame(parseInt(val, 10));
+        }
+
+        function toggleTimelapsePlay() {
+            if (isTimelapsePlaying) {
+                pauseTimelapse();
+            } else {
+                playTimelapse();
+            }
+        }
+
+        function playTimelapse() {
+            if (timelapsePhotosList.length <= 1) {
+                showStorageWarningNotification("¡Tómate fotos de avance para ver el Timelapse cobrar vida! 💕");
+                return;
+            }
+            isTimelapsePlaying = true;
+            const playText = document.getElementById('timelapse-play-text');
+            const playIcon = document.getElementById('timelapse-play-icon');
+            if (playText) playText.innerText = "Pausar";
+            if (playIcon) playIcon.className = "fa-solid fa-pause";
+
+            const speedEl = document.getElementById('timelapse-speed');
+            const speed = speedEl ? parseInt(speedEl.value, 10) : 800;
+
+            timelapseInterval = setInterval(() => {
+                currentTimelapseIndex = (currentTimelapseIndex + 1) % timelapsePhotosList.length;
+                renderTimelapseFrame(currentTimelapseIndex);
+            }, speed);
+        }
+
+        function pauseTimelapse() {
+            isTimelapsePlaying = false;
+            if (timelapseInterval) clearInterval(timelapseInterval);
+            timelapseInterval = null;
+            const playText = document.getElementById('timelapse-play-text');
+            const playIcon = document.getElementById('timelapse-play-icon');
+            if (playText) playText.innerText = "Reproducir";
+            if (playIcon) playIcon.className = "fa-solid fa-play";
+        }
+
+        /* --- MANEJO DE NOTAS Y FEEDBACK SEMANAL --- */
+        function saveFeedbackNotes() {
+            const notesEl = document.getElementById('weekly-feedback-notes');
+            if (!notesEl) return;
+            const notes = notesEl.value;
+            safeSetItem('jessica_feedback_notes', notes);
+        }
+
+        function loadFeedbackNotes() {
+            try {
+                const saved = localStorage.getItem('jessica_feedback_notes');
+                const notesEl = document.getElementById('weekly-feedback-notes');
+                if (saved && notesEl) {
+                    notesEl.value = saved;
+                }
+            } catch (e) {
+                console.warn("[Storage Warning] Error al cargar notas:", e);
+            }
+        }
+
+        /* --- CIERRE Y GUARDADO DEL DÍA PARA REPORTE SEMANAL --- */
+        function closeAndSaveDay() {
+            const dateKey = getTodayDateKey();
+            const daysMapNutri = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
+            const todayNutriKey = daysMapNutri[new Date().getDay()];
+            const daysMapWorkouts = ['finde', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'finde'];
+            const todayWorkoutKey = daysMapWorkouts[new Date().getDay()];
+
+            const actMetrics = safeJsonParse(localStorage.getItem('jessica_act_metrics'), {});
+            
+            // Recopilar ejercicios de hoy
+            const todayWorkouts = [];
+            const exList = workouts[todayWorkoutKey]?.exercises || [];
+            exList.forEach((ex, idx) => {
+                const log = safeJsonParse(localStorage.getItem(`wlog_${todayWorkoutKey}_${idx}_${dateKey}`) || localStorage.getItem(`wlog_${todayWorkoutKey}_${idx}`), {});
+                const done = (localStorage.getItem(`ex_check_${todayWorkoutKey}_${idx}_${dateKey}`) || localStorage.getItem(`ex_check_${todayWorkoutKey}_${idx}`)) === 'true';
+                todayWorkouts.push({
+                    name: ex.name,
+                    done,
+                    w: log.w || '',
+                    r: log.r || '',
+                    p: log.p || ''
+                });
+            });
+
+            // Recopilar comidas de hoy
+            let mealsDone = 0;
+            const mealList = nutritionData[todayNutriKey]?.meals || [];
+            mealList.forEach((_, idx) => {
+                const done = (localStorage.getItem(`meal_check_${todayNutriKey}_${idx}_${dateKey}`) || localStorage.getItem(`meal_check_${todayNutriKey}_${idx}`)) === 'true';
+                if (done) mealsDone++;
+            });
+
+            const dayRecord = {
+                date: dateKey,
+                dayName: todayNutriKey,
+                water: waterCount,
+                mealsCompleted: `${mealsDone}/${mealList.length}`,
+                metrics: actMetrics,
+                workouts: todayWorkouts,
+                hasPhoto: !!localStorage.getItem('today_progress_photo'),
+                photoBase64: localStorage.getItem('today_progress_photo') || null,
+                closedAt: new Date().toLocaleTimeString()
+            };
+
+            const history = safeJsonParse(localStorage.getItem('jessica_weekly_history_v1'), []);
+            const existingIdx = history.findIndex(h => h.date === dateKey);
+            if (existingIdx >= 0) {
+                history[existingIdx] = dayRecord;
+            } else {
+                history.push(dayRecord);
+            }
+
+            const ok = safeSetItem('jessica_weekly_history_v1', JSON.stringify(history));
+            if (typeof loadTimelapsePhotos === 'function') loadTimelapsePhotos();
+            const toast = document.getElementById('close-day-toast');
+            if (ok && toast) {
+                toast.classList.remove('hidden');
+                try {
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 80,
+                            spread: 75,
+                            origin: { y: 0.6 },
+                            colors: ['#f472b6', '#ec4899', '#a855f7', '#38bdf8', '#fbbf24']
+                        });
+                    }
+                } catch (e) {}
+                setTimeout(() => toast.classList.add('hidden'), 4000);
+            }
+        }
+
+        function generateWeeklyReport() {
+            const actMetrics = safeJsonParse(localStorage.getItem('jessica_act_metrics'), {});
+            const history = safeJsonParse(localStorage.getItem('jessica_weekly_history_v1'), []);
+            let userNotes = '';
+            try {
+                userNotes = localStorage.getItem('jessica_feedback_notes') || '';
+            } catch (e) {
+                console.warn("[Storage Warning] Error al leer notas para reporte:", e);
+            }
+            
+            let report = `=== REPORTE DE PROGRESO SEMANAL — JESSICA ✨ ===\n`;
+            report += `Fecha de generación: ${new Date().toLocaleDateString()}\n\n`;
+            
+            report += `--- MEDIDAS ACTUALES VS METAS ---\n`;
+            report += `• Peso: ${actMetrics.peso || '57.0'} kg (Meta: 58.0 kg)\n`;
+            report += `• Cintura: ${actMetrics.cintura || '80.0'} cm (Meta: 70.0 cm)\n`;
+            report += `• Glúteos: ${actMetrics.gluteo || '100.0'} cm (Meta: 110.0 cm)\n`;
+            report += `• Busto: ${actMetrics.busto || '96.0'} cm (Meta: 100.0 cm)\n`;
+            report += `• Muslo: ${actMetrics.muslo || 'No registrado'} cm (Meta: 60.0 cm)\n\n`;
+
+            if (history.length > 0) {
+                report += `--- HISTORIAL DE DÍAS CERRADOS (${history.length} DÍAS) ---\n`;
+                history.forEach(day => {
+                    report += `\n📅 [${day.date} — ${day.dayName.toUpperCase()}]\n`;
+                    report += `  • Hidratación: ${day.water}/10 vasos (2.5L)\n`;
+                    report += `  • Comidas cumplidas: ${day.mealsCompleted}\n`;
+                    report += `  • Foto de avance registrada: ${day.hasPhoto ? 'SÍ 📸' : 'No'}\n`;
+                    if (day.workouts && day.workouts.length > 0) {
+                        report += `  • Ejercicios:\n`;
+                        day.workouts.forEach(w => {
+                            const pesoTxt = w.w ? `${w.w} kg` : 'Sin peso';
+                            const repsTxt = w.r ? `${w.r} reps` : 'Sin reps';
+                            const dolorTxt = w.p !== undefined && w.p !== '' ? `Dolor: ${w.p}/10` : 'Dolor: 0/10';
+                            report += `    - ${w.name}: [${w.done ? '✓' : '✗'}] ${pesoTxt} | ${repsTxt} | ${dolorTxt}\n`;
+                        });
+                    }
+                });
+                report += `\n`;
+            } else {
+                report += `--- REGISTRO GENERAL DE ENTRENAMIENTOS (SEMANA 1) ---\n`;
+                const dayKeys = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'];
+                dayKeys.forEach(day => {
+                    const dayData = workouts[day];
+                    if (!dayData) return;
+                    report += `\n[${dayData.title}]\n`;
+                    dayData.exercises.forEach((ex, idx) => {
+                        const saved = safeJsonParse(localStorage.getItem(`wlog_${day}_${idx}`), {});
+                        const peso = saved.w ? `${saved.w} kg` : 'Sin datos';
+                        const reps = saved.r ? `${saved.r} reps` : 'Sin datos';
+                        const dolor = saved.p !== undefined && saved.p !== '' ? `${saved.p}/10` : '0/10';
+                        report += `  - ${ex.name}: Peso: ${peso} | Reps: ${reps} | Dolor: ${dolor}\n`;
+                    });
+                });
+                report += `\n`;
+            }
+
+            if (userNotes.trim()) {
+                report += `--- NOTAS Y OBSERVACIONES DE JESSICA ---\n${userNotes.trim()}\n\n`;
+            }
+
+            report += `--- OBSERVACIONES GENERALES ---\n`;
+            report += `Plan enfocado en técnica, RIR 3-4, sensibilidad glútea y recomposición corporal. Datos listos para diseñar la Semana 2.`;
+
+            const reportEl = document.getElementById('report-text');
+            const reportContainer = document.getElementById('report-output-container');
+            if (reportEl) reportEl.value = report;
+            if (reportContainer) reportContainer.classList.remove('hidden');
+        }
+
+        function shareReportWhatsApp() {
+            generateWeeklyReport();
+            const reportText = document.getElementById('report-text')?.value || '';
+            if (!reportText) return;
+
+            const photoBase64 = localStorage.getItem('today_progress_photo');
+
+            if (navigator.share && photoBase64) {
+                try {
+                    const byteString = atob(photoBase64.split(',')[1]);
+                    const ab = new ArrayBuffer(byteString.length);
+                    const ia = new Uint8Array(ab);
+                    for (let i = 0; i < byteString.length; i++) {
+                        ia[i] = byteString.charCodeAt(i);
+                    }
+                    const blob = new Blob([ab], { type: 'image/jpeg' });
+                    const file = new File([blob], 'avance_jessica.jpg', { type: 'image/jpeg' });
+
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        navigator.share({
+                            title: 'Reporte Transformación Jessica ✨',
+                            text: reportText,
+                            files: [file]
+                        }).catch(() => {
+                            window.location.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(reportText)}`;
+                        });
+                        return;
+                    }
+                } catch (e) {
+                    console.warn("Share fallback:", e);
+                }
+            }
+
+            window.location.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(reportText)}`;
+        }
+
+        function copyReportText() {
+            const textArea = document.getElementById('report-text');
+            if (!textArea) return;
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textArea.value).then(() => {
+                    showCopyToast();
+                }).catch(() => {
+                    fallbackCopy(textArea);
+                });
+            } else {
+                fallbackCopy(textArea);
+            }
+        }
+
+        function fallbackCopy(textArea) {
+            try {
+                textArea.select();
+                document.execCommand('copy');
+                showCopyToast();
+            } catch (err) {
+                console.warn("[Copy Warning] Error al copiar:", err);
+            }
+        }
+
+        function showCopyToast() {
+            const toast = document.getElementById('copy-toast');
+            if (toast) {
+                toast.classList.remove('hidden');
+                setTimeout(() => toast.classList.add('hidden'), 3000);
+            }
+        }
+
+        /* --- LÓGICA DE NUTRI-IA (GEMINI MULTIMODAL) --- */
+        let currentNutriPhotoBase64 = null;
+
+        function handleNutriPhoto(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 800;
+                    const scale = img.width > MAX_WIDTH ? (MAX_WIDTH / img.width) : 1;
+                    canvas.width = Math.round(img.width * scale);
+                    canvas.height = Math.round(img.height * scale);
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    currentNutriPhotoBase64 = canvas.toDataURL('image/jpeg', 0.8);
+                    
+                    const preview = document.getElementById('nutri-ai-preview');
+                    const previewImg = document.getElementById('nutri-preview-img');
+                    if (preview && previewImg) {
+                        previewImg.src = currentNutriPhotoBase64;
+                        preview.classList.remove('hidden');
+                    }
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearNutriPhoto() {
+            currentNutriPhotoBase64 = null;
+            const preview = document.getElementById('nutri-ai-preview');
+            const fileInput = document.getElementById('nutri-ai-file');
+            if (preview) preview.classList.add('hidden');
+            if (fileInput) fileInput.value = '';
+        }
+
+        async function consultNutriAI() {
+            const textInput = document.getElementById('nutri-ai-text');
+            const text = textInput ? textInput.value.trim() : '';
+
+            if (!text && !currentNutriPhotoBase64) {
+                showStorageWarningNotification("Por favor toma una foto del platillo o escribe tu duda 💕");
+                return;
+            }
+
+            const loading = document.getElementById('nutri-ai-loading');
+            const result = document.getElementById('nutri-ai-result');
+            const submitBtn = document.getElementById('nutri-ai-submit-btn');
+
+            if (loading) loading.classList.remove('hidden');
+            if (result) result.classList.add('hidden');
+            if (submitBtn) submitBtn.disabled = true;
+
+            try {
+                const requestPayload = {
+                    text,
+                    imageBase64: currentNutriPhotoBase64,
+                    mimeType: 'image/jpeg'
+                };
+
+                let response = await fetch('/api/check-food', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestPayload)
+                });
+
+                // Si Netlify Drop no procesó el redirect /api/*, consultar directo la función
+                if (response.status === 404) {
+                    response = await fetch('/.netlify/functions/check-food', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(requestPayload)
+                    });
+                }
+
+                if (!response.ok) {
+                    const errData = await response.json().catch(() => ({}));
+                    const msg = errData.error || errData.details || `Error del servidor HTTP ${response.status}`;
+                    throw new Error(msg);
+                }
+
+                const data = await response.json();
+                renderNutriAIResult(data);
+            } catch (err) {
+                console.error("Error consultando Nutri-IA:", err);
+                if (result) {
+                    result.className = "p-3.5 rounded-2xl border bg-amber-50 border-amber-300 text-amber-900 space-y-1";
+                    document.getElementById('nutri-res-badge').className = "text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-200 text-amber-800";
+                    document.getElementById('nutri-res-badge').innerText = "AVISO";
+                    document.getElementById('nutri-res-title').innerText = "No se pudo conectar con la Nutri-IA";
+                    document.getElementById('nutri-res-reason').innerText = err.message || "Verifica tu conexión a internet o la configuración del servidor.";
+                    document.getElementById('nutri-res-portion').innerText = "";
+                    document.getElementById('nutri-res-alternative').innerText = "Recuerda: 🚫 Cero cebolla, tomate, papaya, guayaba ni hígado.";
+                    result.classList.remove('hidden');
+                }
+            } finally {
+                if (loading) loading.classList.add('hidden');
+                if (submitBtn) submitBtn.disabled = false;
+            }
+        }
+
+        function renderNutriAIResult(data) {
+            const result = document.getElementById('nutri-ai-result');
+            const badge = document.getElementById('nutri-res-badge');
+            const title = document.getElementById('nutri-res-title');
+            const reason = document.getElementById('nutri-res-reason');
+            const portion = document.getElementById('nutri-res-portion');
+            const alternative = document.getElementById('nutri-res-alternative');
+
+            if (!result || !data) return;
+
+            if (data.verdict === 'SEGURO') {
+                result.className = "p-3.5 rounded-2xl border bg-emerald-50/95 border-emerald-300 text-emerald-950 space-y-1.5 shadow-sm tab-animate";
+                badge.className = "text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-200 text-emerald-800";
+                badge.innerText = "🟢 ¡SEGURO PARA TU PLAN!";
+            } else if (data.verdict === 'MODERACION') {
+                result.className = "p-3.5 rounded-2xl border bg-amber-50/95 border-amber-300 text-amber-950 space-y-1.5 shadow-sm tab-animate";
+                badge.className = "text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-amber-200 text-amber-800";
+                badge.innerText = "🟡 CON MODERACIÓN";
+            } else {
+                result.className = "p-3.5 rounded-2xl border bg-rose-50/95 border-rose-300 text-rose-950 space-y-1.5 shadow-sm tab-animate";
+                badge.className = "text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-rose-200 text-rose-800";
+                badge.innerText = "🔴 NO RECOMENDADO / ALERTA";
+            }
+
+            title.innerText = data.title || "Resultado del análisis";
+            reason.innerText = data.reason || "";
+            portion.innerText = data.portionTip ? `⚖️ Porción: ${data.portionTip}` : "";
+            alternative.innerText = data.alternative ? `💡 Consejo: ${data.alternative}` : "";
+
+            result.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
